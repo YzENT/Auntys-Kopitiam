@@ -54,6 +54,9 @@ public class GameAssets extends Game {
 	public static Texture VolumeUnmuteIcon;
 	public static Texture VolumeMuteIcon;
 	public static Texture GoBackMainMenu;
+	
+	// For ingredient animations
+	public static Texture[] Pour;
 
 	// Cursor
 	public static Pixmap cursorPixmap;
@@ -168,6 +171,17 @@ public class GameAssets extends Game {
 		Coffee = new Texture(Gdx.files.internal("Texture/Ingredients/Coffee.png"));
 		Milo = new Texture(Gdx.files.internal("Texture/Ingredients/Milo.png"));
 		Ice = new Texture(Gdx.files.internal("Texture/Ingredients/Ice.png"));
+		
+		Pour = new Texture[8];
+		Pour[0] = new Texture(Gdx.files.internal("Texture/Ingredients/TeaPour"));
+		Pour[1] = new Texture(Gdx.files.internal("Texture/Ingredients/MilkPour"));
+		Pour[2] = new Texture(Gdx.files.internal("Texture/Ingredients/WaterPour"));
+		Pour[3] = new Texture(Gdx.files.internal("Texture/Ingredients/SyrupPour"));
+		Pour[4] = new Texture(Gdx.files.internal("Texture/Ingredients/SugarPour"));
+		Pour[5] = new Texture(Gdx.files.internal("Texture/Ingredients/CoffeePour"));
+		Pour[6] = new Texture(Gdx.files.internal("Texture/Ingredients/MiloPour"));
+		Pour[7] = new Texture(Gdx.files.internal("Texture/Ingredients/IcePour"));
+		
 		ServeDrinkIcon = new Texture(Gdx.files.internal("Texture/ServeDrinkIcon.png"));
 		DustbinIcon = new Texture(Gdx.files.internal("Texture/DustbinIcon.png"));
 		VolumeUnmuteIcon = new Texture(Gdx.files.internal("Texture/VolumeUnmuteIcon.png"));
@@ -258,6 +272,11 @@ public class GameAssets extends Game {
 		Coffee.dispose();
 		Milo.dispose();
 		Ice.dispose();
+		
+		for (Texture texture : Pour) {
+			texture.dispose();
+		}
+		
 		ServeDrinkIcon.dispose();
 		DustbinIcon.dispose();
 		GoBackMainMenu.dispose();
