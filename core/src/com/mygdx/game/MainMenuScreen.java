@@ -20,8 +20,7 @@ public class MainMenuScreen extends ScreenAdapter {
 	public void Buttons() {
 
 		// common spacing used for calculations
-		float ModifyXOffsetByPx = 45;
-		float ButtonHeightDifference = 10;
+		float ButtonHeightDifference = 8;
 
 		// initialize x amount of buttons
 		GameAssets.MassRender = new ButtonBehaviour[5];
@@ -31,33 +30,33 @@ public class MainMenuScreen extends ScreenAdapter {
 
 		// PlayGame button
 		GameAssets.MassRender[0] = new ButtonBehaviour(GameAssets.PlayGameButton,
-				(Gdx.graphics.getWidth() - GameAssets.PlayGameButton.getWidth()) / 2 + (ModifyXOffsetByPx * 0 / 2),
+				(Gdx.graphics.getWidth() - GameAssets.PlayGameButton.getWidth()) / 2,
 				(((Gdx.graphics.getHeight() - GameAssets.PlayGameButton.getHeight()) / 2) / 30)
 						* ((ButtonHeightDifference * 3) + 2),
-				GameAssets.PlayGameButton.getWidth() - (ModifyXOffsetByPx * 0), GameAssets.PlayGameButton.getHeight(),
+				GameAssets.PlayGameButton.getWidth(), GameAssets.PlayGameButton.getHeight(),
 				game);
 
 		// HowToPlay button
 		GameAssets.MassRender[1] = new ButtonBehaviour(GameAssets.HowToPlayButton,
-				(Gdx.graphics.getWidth() - GameAssets.HowToPlayButton.getWidth()) / 2 + (ModifyXOffsetByPx * 1 / 2),
+				(Gdx.graphics.getWidth() - GameAssets.HowToPlayButton.getWidth()) / 2,
 				(((Gdx.graphics.getHeight() - GameAssets.HowToPlayButton.getHeight()) / 2) / 30)
 						* ((ButtonHeightDifference * 2) + 2),
-				GameAssets.HowToPlayButton.getWidth() - (ModifyXOffsetByPx * 1), GameAssets.HowToPlayButton.getHeight(),
+				GameAssets.HowToPlayButton.getWidth(), GameAssets.HowToPlayButton.getHeight(),
 				game);
 
 		// About button
 		GameAssets.MassRender[2] = new ButtonBehaviour(GameAssets.AboutButton,
-				(Gdx.graphics.getWidth() - GameAssets.AboutButton.getWidth()) / 2 + (ModifyXOffsetByPx * 2 / 2),
+				(Gdx.graphics.getWidth() - GameAssets.AboutButton.getWidth()) / 2,
 				(((Gdx.graphics.getHeight() - GameAssets.AboutButton.getHeight()) / 2) / 30)
 						* ((ButtonHeightDifference * 1) + 2),
-				GameAssets.AboutButton.getWidth() - (ModifyXOffsetByPx * 2), GameAssets.AboutButton.getHeight(), game);
+				GameAssets.AboutButton.getWidth(), GameAssets.AboutButton.getHeight(), game);
 
 		// Quit button
 		GameAssets.MassRender[3] = new ButtonBehaviour(GameAssets.QuitButton,
-				(Gdx.graphics.getWidth() - GameAssets.QuitButton.getWidth()) / 2 + (ModifyXOffsetByPx * 3 / 2),
+				(Gdx.graphics.getWidth() - GameAssets.QuitButton.getWidth()) / 2,
 				(((Gdx.graphics.getHeight() - GameAssets.QuitButton.getHeight()) / 2) / 30)
 						* ((ButtonHeightDifference * 0) + 2),
-				GameAssets.QuitButton.getWidth() - (ModifyXOffsetByPx * 3), GameAssets.QuitButton.getHeight(), game);
+				GameAssets.QuitButton.getWidth(), GameAssets.QuitButton.getHeight(), game);
 
 		// Settings icon
 		GameAssets.MassRender[4] = new ButtonBehaviour(GameAssets.SettingsIcon,
