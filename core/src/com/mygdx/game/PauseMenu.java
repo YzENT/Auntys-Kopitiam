@@ -80,8 +80,8 @@ public class PauseMenu extends ScreenAdapter {
 					game.setScreen(new GameScreen(game));
 					break;
 				case 1:
-					GameAssets.TimeLeft = 0;
-					GameAssets.TimerActive = false;
+					CountDownTimer.TimeLeft = 0;
+					CountDownTimer.TimerActive = false;
 					GameAssets.ScoreCount = 0;
 					game.setScreen(new MainMenuScreen(game));
 				default:

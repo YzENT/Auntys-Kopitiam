@@ -5,62 +5,80 @@ import com.badlogic.gdx.utils.Timer;
 public class CountDownTimer {
 
 	GameAssets game;
-
+	public static boolean TimerStopped;
+	public static boolean TimerPaused;
+	public static boolean TimerActive;
+	public static int TimeLeft;
+	private int MaxTime;
+	private Timer time = new Timer();
+	private Timer.Task CountDown;
+	
+	
 	public CountDownTimer() {
 	}
 
 	public void StatusCheck() {
-		if (GameAssets.TimeLeft <= 0 && !GameAssets.TimerActive) {
+		if (CountDownTimer.TimeLeft <= 0 && !TimerActive) {
 			reset();
 		} else {
 			start();
 		}
 	}
 
+	public int getMaxTime() {
+		return MaxTime;
+	}
+
+	public void setMaxTime(int maxTime) {
+		this.MaxTime = maxTime;
+	}
+
+
+
 	public void reset() {
-		GameAssets.TimeLeft = 90;
-		GameAssets.TimerStopped = false;
-		GameAssets.TimerPaused = false;
-		GameAssets.TimerActive = false;
+		TimeLeft = getMaxTime();
+		TimerStopped = false;
+		TimerPaused = false;
+		TimerActive = false;
 		start();
 	}
 
 	public void start() {
-		if (!GameAssets.TimerActive) {
-			GameAssets.CountDown = new Timer.Task() {
+		if (!TimerActive) {
+			CountDown = new Timer.Task() {
 				@Override
 				public void run() {
-					if (GameAssets.TimeLeft <= 0) {
+					if (CountDownTimer.TimeLeft <= 0) {
 						stop();
-					} else if (!GameAssets.TimerStopped) {
-						GameAssets.TimeLeft = GameAssets.TimeLeft - 1;
+					} else if (!TimerStopped) {
+						CountDownTimer.TimeLeft = CountDownTimer.TimeLeft - 1;
 					}
 				}
 			};
-			GameAssets.time.scheduleTask(GameAssets.CountDown, 1, 1);
-			GameAssets.TimerActive = true;
+			time.scheduleTask(CountDown, 1, 1);
+			TimerActive = true;
 		}
 	}
 
 	public void stop() {
-		if (GameAssets.TimerActive) {
-			GameAssets.CountDown.cancel();
-			GameAssets.TimerStopped = true;
-			GameAssets.TimerActive = false;
+		if (TimerActive) {
+			CountDown.cancel();
+			TimerStopped = true;
+			TimerActive = false;
 		}
 	}
 
 	public void pause() {
-		if (GameAssets.TimerActive && !GameAssets.TimerPaused) {
-			GameAssets.CountDown.cancel();
-			GameAssets.TimerPaused = true;
+		if (TimerActive && !TimerPaused) {
+			CountDown.cancel();
+			TimerPaused = true;
 		}
 	}
 
 	public void resume() {
-		if (GameAssets.TimerActive && GameAssets.TimerPaused) {
-			GameAssets.time.scheduleTask(GameAssets.CountDown, 1, 1);
-			GameAssets.TimerPaused = false;
+		if (TimerActive && TimerPaused) {
+			time.scheduleTask(CountDown, 1, 1);
+			TimerPaused = false;
 		}
 	}
 
@@ -69,3 +87,4 @@ public class CountDownTimer {
 		GameAssets.CountDownTimer.dispose();
 	}
 }
+

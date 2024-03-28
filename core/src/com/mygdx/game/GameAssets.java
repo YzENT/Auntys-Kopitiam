@@ -81,15 +81,10 @@ public class GameAssets extends Game {
 	public static IngredientsLogic IngredientsLogic;
 	
 	// In-Game Constants
-	public static int TimeLeft = 90;
-	public static Timer time;
-	public static Timer.Task CountDown;
-	public static boolean TimerStopped = false;
-	public static boolean TimerPaused = false;
-	public static boolean TimerActive = false;
 	public static int ScoreCount = 0;
 	public static int DrinkType;
 	public static String[] DrinkNames = { "Kopi", "Teh Tarik", "Cham", "Milo", "Sirap Bandung" };
+	public static int TimeAnimate;
 	public static boolean AnimateFade = false;
 
 	// Strings
@@ -173,14 +168,14 @@ public class GameAssets extends Game {
 		Ice = new Texture(Gdx.files.internal("Texture/Ingredients/Ice.png"));
 		
 		Pour = new Texture[8];
-		Pour[0] = new Texture(Gdx.files.internal("Texture/Ingredients/TeaPour"));
-		Pour[1] = new Texture(Gdx.files.internal("Texture/Ingredients/MilkPour"));
-		Pour[2] = new Texture(Gdx.files.internal("Texture/Ingredients/WaterPour"));
-		Pour[3] = new Texture(Gdx.files.internal("Texture/Ingredients/SyrupPour"));
-		Pour[4] = new Texture(Gdx.files.internal("Texture/Ingredients/SugarPour"));
-		Pour[5] = new Texture(Gdx.files.internal("Texture/Ingredients/CoffeePour"));
-		Pour[6] = new Texture(Gdx.files.internal("Texture/Ingredients/MiloPour"));
-		Pour[7] = new Texture(Gdx.files.internal("Texture/Ingredients/IcePour"));
+		Pour[0] = new Texture(Gdx.files.internal("Texture/Ingredients/TeaPour.png"));
+		Pour[1] = new Texture(Gdx.files.internal("Texture/Ingredients/MilkPour.png"));
+		Pour[2] = new Texture(Gdx.files.internal("Texture/Ingredients/WaterPour.png"));
+		Pour[3] = new Texture(Gdx.files.internal("Texture/Ingredients/SyrupPour.png"));
+		Pour[4] = new Texture(Gdx.files.internal("Texture/Ingredients/SugarPour.png"));
+		Pour[5] = new Texture(Gdx.files.internal("Texture/Ingredients/CoffeePour.png"));
+		Pour[6] = new Texture(Gdx.files.internal("Texture/Ingredients/MiluPour.png"));
+		Pour[7] = new Texture(Gdx.files.internal("Texture/Ingredients/IcePour.png"));
 		
 		ServeDrinkIcon = new Texture(Gdx.files.internal("Texture/ServeDrinkIcon.png"));
 		DustbinIcon = new Texture(Gdx.files.internal("Texture/DustbinIcon.png"));
@@ -214,6 +209,7 @@ public class GameAssets extends Game {
 
 		InGameMouse = new InGameMouseBehaviour();
 		CountDownTimer = new CountDownTimer();
+		CountDownTimer.setMaxTime(90);
 		IngredientsLogic = new IngredientsLogic();
 		
 		HighScoreKeeper = Gdx.app.getPreferences("My Preferences");
@@ -226,7 +222,6 @@ public class GameAssets extends Game {
 		// Retrieve the high score from the preferences file
 		HighScore = HighScoreKeeper.getInteger("highscore");
 
-		time = new Timer();
 
 		this.setScreen(new MainMenuScreen(this));
 	}

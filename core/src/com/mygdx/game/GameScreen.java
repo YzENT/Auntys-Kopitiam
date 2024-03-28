@@ -74,7 +74,7 @@ public class GameScreen extends ScreenAdapter {
 		GameAssets.batch.end(); // end rendering
 
 		//if time runs out, swap screen
-		if (GameAssets.TimeLeft == 0) {
+		if (CountDownTimer.TimeLeft == 0) {
 			
 			if (GameAssets.ScoreCount > GameAssets.HighScore) {
 	            GameAssets.HighScoreKeeper.putInteger("highscore", GameAssets.ScoreCount);
@@ -189,8 +189,8 @@ public class GameScreen extends ScreenAdapter {
 
 	public void AlternateTimerColour() {
 		GameAssets.font.setColor(1, 1, 1, 1); //set font to white (bug may occur without this)
-		if (GameAssets.TimeLeft <= 10) { //if timer is less than 10
-			if (GameAssets.TimeLeft % 2 == 0) { //if value is a factor of 2
+		if (CountDownTimer.TimeLeft <= 10) { //if timer is less than 10
+			if (CountDownTimer.TimeLeft % 2 == 0) { //if value is a factor of 2
 				GameAssets.font.setColor(1, 0, 0, 1); //set it to red
 			} else {
 				GameAssets.font.setColor(1, 1, 1, 1); //alternate it to white
@@ -244,7 +244,7 @@ public class GameScreen extends ScreenAdapter {
 		
 		AlternateTimerColour(); // code to alter colour for timer
 		//render time left
-		GameAssets.font.draw(GameAssets.batch, String.format("%02d", GameAssets.TimeLeft), 795,
+		GameAssets.font.draw(GameAssets.batch, String.format("%02d", CountDownTimer.TimeLeft), 795,
 				Gdx.graphics.getHeight() - 95);
 		
 		GameAssets.font.setColor(1, 1, 1, 1); // only allow the colour of timer to be altered, anything below this code, text should be pure white
