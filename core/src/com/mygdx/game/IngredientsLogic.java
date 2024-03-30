@@ -42,58 +42,58 @@ public class IngredientsLogic{
 	}
 
 	public void Kopi() {
-		GameAssets.System_SugarCount = GameAssets.random.nextInt(3) + 1; // Range: 1-3
+		GameAssets.System_SugarCount = 1; // Range: 1
 		GameAssets.System_IceCount = GameAssets.random.nextInt(2); // Range: 0-1
 		GameAssets.System_TeaCount = 0; // Range: 0
 		GameAssets.System_MiloCount = 0; // Range: 0
-		GameAssets.System_SyrupCount = GameAssets.random.nextInt(4); // Range: 0-3
-		GameAssets.System_CoffeeCount = GameAssets.random.nextInt(3) + 1; // Range: 1-3
+		GameAssets.System_SyrupCount = GameAssets.random.nextInt(2); // Range: 0-2
+		GameAssets.System_CoffeeCount = GameAssets.random.nextInt(2) + 1; // Range: 1-2
 		GameAssets.System_MilkCount = 0; // Range: 0
-		GameAssets.System_WaterCount = GameAssets.random.nextInt(3) + 3; // Range: 3-5
+		GameAssets.System_WaterCount = GameAssets.random.nextInt(3) + 1; // Range: 1-3
 	}
 
 	public void TehTarik() {
-		GameAssets.System_SugarCount = GameAssets.random.nextInt(3) + 2; // Range: 2-4
+		GameAssets.System_SugarCount = GameAssets.random.nextInt(2) + 1; // Range: 1-2
 		GameAssets.System_IceCount = GameAssets.random.nextInt(2); // Range: 0-1
-		GameAssets.System_TeaCount = GameAssets.random.nextInt(3) + 1; // Range: 1-3
+		GameAssets.System_TeaCount = GameAssets.random.nextInt(2) + 1; // Range: 1-2
 		GameAssets.System_MiloCount = 0; // Range: 0
 		GameAssets.System_SyrupCount = 0; // Range: 0
 		GameAssets.System_CoffeeCount = 0; // Range: 0
-		GameAssets.System_MilkCount = GameAssets.random.nextInt(3) + 3; // Range: 3-5
+		GameAssets.System_MilkCount = GameAssets.random.nextInt(3) + 1; // Range: 1-3
 		GameAssets.System_WaterCount = GameAssets.random.nextInt(2); // Range: 0-1
 	}
 
 	public void Cham() {
-		GameAssets.System_SugarCount = GameAssets.random.nextInt(4) + 2; // Range: 2-5
+		GameAssets.System_SugarCount = GameAssets.random.nextInt(2) + 1; // Range: 1-2
 		GameAssets.System_IceCount = GameAssets.random.nextInt(2); // Range: 0-1
 		GameAssets.System_TeaCount = GameAssets.random.nextInt(3) + 1; // Range: 1-3
 		GameAssets.System_MiloCount = 0; // Range: 0
-		GameAssets.System_SyrupCount = GameAssets.random.nextInt(4); // Range: 0-3
+		GameAssets.System_SyrupCount = GameAssets.random.nextInt(3); // Range: 0-2
 		GameAssets.System_CoffeeCount = GameAssets.random.nextInt(3) + 1; // Range: 1-3
-		GameAssets.System_MilkCount = GameAssets.random.nextInt(3) + 3; // Range: 3-5
+		GameAssets.System_MilkCount = GameAssets.random.nextInt(3) + 1; // Range: 1-3
 		GameAssets.System_WaterCount = GameAssets.random.nextInt(2); // Range: 0-1
 	}
 
 	public void Milo() {
-		GameAssets.System_SugarCount = GameAssets.random.nextInt(4) + 2; // Range: 2-5
+		GameAssets.System_SugarCount = GameAssets.random.nextInt(1) + 2; // Range: 2-3
 		GameAssets.System_IceCount = GameAssets.random.nextInt(2); // Range: 0-1
 		GameAssets.System_TeaCount = 0; // Range: 0
-		GameAssets.System_MiloCount = GameAssets.random.nextInt(2) + 3; // Range: 3-4
-		GameAssets.System_SyrupCount = GameAssets.random.nextInt(3); // Range: 0-2
+		GameAssets.System_MiloCount = GameAssets.random.nextInt(2) + 1; // Range: 1-2
+		GameAssets.System_SyrupCount = GameAssets.random.nextInt(2); // Range: 0-1
 		GameAssets.System_CoffeeCount = 0; // Range: 0
 		GameAssets.System_MilkCount = GameAssets.random.nextInt(2) + 2; // Range: 2-3
 		GameAssets.System_WaterCount = 0; // Range: 0
 	}
 
 	public void SirapBandung() {
-		GameAssets.System_SugarCount = GameAssets.random.nextInt(4) + 2; // Range: 2-5
+		GameAssets.System_SugarCount = GameAssets.random.nextInt(2) + 1; // Range: 1-2
 		GameAssets.System_IceCount = GameAssets.random.nextInt(2); // Range: 0-1
 		GameAssets.System_TeaCount = 0; // Range: 0
 		GameAssets.System_MiloCount = 0; // Range: 0
-		GameAssets.System_SyrupCount = GameAssets.random.nextInt(3) + 3; // Range: 3-5
+		GameAssets.System_SyrupCount = GameAssets.random.nextInt(2) + 2; // Range: 2-3
 		GameAssets.System_CoffeeCount = 0; // Range: 0
-		GameAssets.System_MilkCount = GameAssets.random.nextInt(3) + 3; // Range: 3-5
-		GameAssets.System_WaterCount = GameAssets.random.nextInt(4) + 3; // Range: 3-6
+		GameAssets.System_MilkCount = GameAssets.random.nextInt(2) + 2; // Range: 2-3
+		GameAssets.System_WaterCount = GameAssets.random.nextInt(2) + 1; // Range: 1-2
 	}
 
 	

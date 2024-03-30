@@ -5,31 +5,43 @@ import com.badlogic.gdx.utils.Timer;
 public class CountDownTimer {
 
 	GameAssets game;
-	public static boolean TimerStopped;
-	public static boolean TimerPaused;
-	public static boolean TimerActive;
-	public static int TimeLeft;
-	private int MaxTime;
+	public boolean TimerStopped;
+	public boolean TimerPaused;
+	public boolean TimerActive;
+	private float TimeLeft;
+	float Delay;
+	float Interval;
+	private float MaxTime;
 	private Timer time = new Timer();
 	private Timer.Task CountDown;
 	
 	
-	public CountDownTimer() {
+	public CountDownTimer(float delay, float interval) {
+		Delay = delay;
+		Interval = interval;
 	}
 
 	public void StatusCheck() {
-		if (CountDownTimer.TimeLeft <= 0 && !TimerActive) {
+		if (TimeLeft <= 0 && !TimerActive) {
 			reset();
 		} else {
 			start();
 		}
 	}
 
-	public int getMaxTime() {
+	public float getTimeLeft() {
+		return TimeLeft;
+	}
+
+	public void setTimeLeft(float timeLeft) {
+		TimeLeft = timeLeft;
+	}
+
+	public float getMaxTime() {
 		return MaxTime;
 	}
 
-	public void setMaxTime(int maxTime) {
+	public void setMaxTime(float maxTime) {
 		this.MaxTime = maxTime;
 	}
 
@@ -48,14 +60,14 @@ public class CountDownTimer {
 			CountDown = new Timer.Task() {
 				@Override
 				public void run() {
-					if (CountDownTimer.TimeLeft <= 0) {
+					if (TimeLeft <= 0) {
 						stop();
 					} else if (!TimerStopped) {
-						CountDownTimer.TimeLeft = CountDownTimer.TimeLeft - 1;
+						TimeLeft = TimeLeft - Delay;
 					}
 				}
 			};
-			time.scheduleTask(CountDown, 1, 1);
+			time.scheduleTask(CountDown, Delay, Interval);
 			TimerActive = true;
 		}
 	}
@@ -77,7 +89,7 @@ public class CountDownTimer {
 
 	public void resume() {
 		if (TimerActive && TimerPaused) {
-			time.scheduleTask(CountDown, 1, 1);
+			time.scheduleTask(CountDown, Delay, Interval);
 			TimerPaused = false;
 		}
 	}

@@ -45,6 +45,7 @@ public class PreGameScreen extends ScreenAdapter {
 	public void InputDetection() {
 		if (Gdx.input.justTouched()) {
 			game.setScreen(new GameScreen(game));
+			
 		}
 	}
 

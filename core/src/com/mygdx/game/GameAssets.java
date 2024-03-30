@@ -49,6 +49,7 @@ public class GameAssets extends Game {
 	public static Texture Coffee;
 	public static Texture Milo;
 	public static Texture Ice;
+	public static Texture MixingCupFront;
 	public static Texture ServeDrinkIcon;
 	public static Texture DustbinIcon;
 	public static Texture VolumeUnmuteIcon;
@@ -128,6 +129,7 @@ public class GameAssets extends Game {
 	//Miscellaneous
 	public static boolean SFXToggle = true;
 	public static boolean MusicToggle = true;
+	public static boolean AnimationPlay = false;
 	public static int TutorialImageIndex = 0;
 	public static int TutorialImageCount = 0;
 
@@ -166,6 +168,7 @@ public class GameAssets extends Game {
 		Coffee = new Texture(Gdx.files.internal("Texture/Ingredients/Coffee.png"));
 		Milo = new Texture(Gdx.files.internal("Texture/Ingredients/Milo.png"));
 		Ice = new Texture(Gdx.files.internal("Texture/Ingredients/Ice.png"));
+		MixingCupFront = new Texture(Gdx.files.internal("Texture/Ingredients/MixingCupFront.png"));
 		
 		Pour = new Texture[8];
 		Pour[0] = new Texture(Gdx.files.internal("Texture/Ingredients/TeaPour.png"));
@@ -208,7 +211,7 @@ public class GameAssets extends Game {
 		random = new Random();
 
 		InGameMouse = new InGameMouseBehaviour();
-		CountDownTimer = new CountDownTimer();
+		CountDownTimer = new CountDownTimer(1.0f,1.0f);
 		CountDownTimer.setMaxTime(90);
 		IngredientsLogic = new IngredientsLogic();
 		
@@ -267,6 +270,7 @@ public class GameAssets extends Game {
 		Coffee.dispose();
 		Milo.dispose();
 		Ice.dispose();
+		MixingCupFront.dispose();
 		
 		for (Texture texture : Pour) {
 			texture.dispose();

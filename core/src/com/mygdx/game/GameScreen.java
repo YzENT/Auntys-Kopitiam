@@ -6,10 +6,14 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen extends ScreenAdapter {
 
 	GameAssets game;
+	private int IngredientIndex; // decides which ingredient animation plays
+	public boolean resetAnimation; // flag to restart animation 
+	CountDownTimer AnimateTimer = new CountDownTimer(0.2f,0.05f);
 
 	public GameScreen(GameAssets game) {
 		this.game = game;
@@ -59,10 +63,9 @@ public class GameScreen extends ScreenAdapter {
 	public void render(float delta) {
 
 		ScreenUtils.clear(0, 0, 0, 1); // clear screen
-		InputDetection(); // checks for input every frame
-		
 		GameAssets.batch.begin(); // begin rendering
 		GameAssets.batch.draw(GameAssets.CafeBg, 0, 0); // draw background image
+		
 		RenderDrinkCount(); //render ingredients requirements
 		RenderMathableUI(); //render timer + score
 
@@ -70,11 +73,20 @@ public class GameScreen extends ScreenAdapter {
 		for (ButtonBehaviour button : GameAssets.MassRender) {
 			button.render();
 		}
+		
+		if (!GameAssets.AnimationPlay) { // when animation is playing, user cannot spam click ingredients
+			InputDetection(); // checks for input every frame
+			
+			
+		}
+		else {
+			AnimateIngredients(); // plays the animation
+		}
 
 		GameAssets.batch.end(); // end rendering
 
 		//if time runs out, swap screen
-		if (CountDownTimer.TimeLeft == 0) {
+		if (GameAssets.CountDownTimer.getTimeLeft() == 0) {
 			
 			if (GameAssets.ScoreCount > GameAssets.HighScore) {
 	            GameAssets.HighScoreKeeper.putInteger("highscore", GameAssets.ScoreCount);
@@ -132,6 +144,12 @@ public class GameScreen extends ScreenAdapter {
 		for (int i = 0; i < GameAssets.MassRender.length; i++) {
 			if (GameAssets.MassRender[i].getRectangle().contains(Gdx.input.getX(),
 					Gdx.graphics.getHeight() - Gdx.input.getY()) && Gdx.input.justTouched() ) {
+				
+				if (i != 0 && i < 9) {
+					resetAnimation = true;
+					GameAssets.AnimationPlay = true;
+				}
+				
 				switch (i) {
 				case 0:
 					for (Sound CorSound : GameAssets.CorrectDrinkSFX) {
@@ -144,27 +162,35 @@ public class GameScreen extends ScreenAdapter {
 					break;
 				case 1:
 					GameAssets.User_TeaCount++;
+					IngredientIndex = 0;	
 					break;
 				case 2:
 					GameAssets.User_MilkCount++;
+					IngredientIndex = 1;
 					break;
 				case 3:
 					GameAssets.User_WaterCount++;
+					IngredientIndex = 2;
 					break;
 				case 4:
 					GameAssets.User_SyrupCount++;
+					IngredientIndex = 3;
 					break;
 				case 5:
 					GameAssets.User_SugarCount++;
+					IngredientIndex = 4;
 					break;
 				case 6:
 					GameAssets.User_CoffeeCount++;
+					IngredientIndex = 5;
 					break;
 				case 7:
 					GameAssets.User_MiloCount++;
+					IngredientIndex = 6;
 					break;
 				case 8:
 					GameAssets.User_IceCount++;
+					IngredientIndex = 7;
 					break;
 				case 9:
 					//if user values = system values, increase score count
@@ -189,8 +215,8 @@ public class GameScreen extends ScreenAdapter {
 
 	public void AlternateTimerColour() {
 		GameAssets.font.setColor(1, 1, 1, 1); //set font to white (bug may occur without this)
-		if (CountDownTimer.TimeLeft <= 10) { //if timer is less than 10
-			if (CountDownTimer.TimeLeft % 2 == 0) { //if value is a factor of 2
+		if (GameAssets.CountDownTimer.getTimeLeft() <= 10) { //if timer is less than 10
+			if (GameAssets.CountDownTimer.getTimeLeft() % 2 == 0) { //if value is a factor of 2
 				GameAssets.font.setColor(1, 0, 0, 1); //set it to red
 			} else {
 				GameAssets.font.setColor(1, 1, 1, 1); //alternate it to white
@@ -244,7 +270,7 @@ public class GameScreen extends ScreenAdapter {
 		
 		AlternateTimerColour(); // code to alter colour for timer
 		//render time left
-		GameAssets.font.draw(GameAssets.batch, String.format("%02d", CountDownTimer.TimeLeft), 795,
+		GameAssets.font.draw(GameAssets.batch, String.format("%02.0f", GameAssets.CountDownTimer.getTimeLeft()), 795,
 				Gdx.graphics.getHeight() - 95);
 		
 		GameAssets.font.setColor(1, 1, 1, 1); // only allow the colour of timer to be altered, anything below this code, text should be pure white
@@ -254,7 +280,33 @@ public class GameScreen extends ScreenAdapter {
 		Gdx.graphics.getHeight() - 95);
 	}
 	
-	public void FadeAnimation() {
+	public void AnimateIngredients() {
 		//animation goes here
+		if (resetAnimation) { // resets the timer to 1.4 seconds
+			AnimateTimer.setMaxTime(1.4f);
+			resetAnimation = false;
+		}
+		
+		AnimateTimer.StatusCheck();
+		
+		if (AnimateTimer.getTimeLeft() <= 0) { // checks if animation is finished, else play animation
+			GameAssets.AnimationPlay = false;
+		}
+		else {
+			if (IngredientIndex == 4 || IngredientIndex == 7) { // animations for ice and sugar
+				if (AnimateTimer.getTimeLeft() > 0.7) {
+					GameAssets.batch.draw(GameAssets.Pour[IngredientIndex], 910 , 414);
+				}
+				else {
+					GameAssets.batch.draw(GameAssets.Pour[IngredientIndex], 910 , 414-100);
+				}
+				
+			}
+			else { // animations for liquids and milu powder
+				GameAssets.batch.draw(GameAssets.Pour[IngredientIndex], 938 , 414);
+				GameAssets.batch.draw(GameAssets.MixingCupFront, 793 , 353);
+			}
+		}
+
 	}
 }
