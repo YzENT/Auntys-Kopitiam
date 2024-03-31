@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Auntys-Kopitiam-Aunty&apos;s Kopitiam-desktop</name>
-	<comment>Project Auntys-Kopitiam-Aunty&apos;s Kopitiam-desktop created by Buildship.</comment>
+	<name>Aunty&apos;s Kopitiam-desktop</name>
+	<comment>Project Aunty&apos;s Kopitiam-desktop created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -24,7 +24,7 @@
 		<link>
 			<name>assets</name>
 			<type>2</type>
-			<location>C:/Users/sidne/OneDrive/Documents/GitHub/Auntys-Kopitiam/assets</location>
+			<location>C:/Nottingham/Programs/Java/Auntys-Kopitiam/assets</location>
 		</link>
 	</linkedResources>
 </projectDescription>
