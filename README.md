@@ -15,7 +15,7 @@ Module Code: COMP1023
 Your goal is to make as many drinks as possible within the time limit by selecting on the specific ingredients based on the order menu.
 
 ## Installation
-1. Download the repository `main` into your device
+1. Download the branch `main` into your device
 2. Launch command prompt in that directory and type: 
    ```sh
    gradlew desktop:run
