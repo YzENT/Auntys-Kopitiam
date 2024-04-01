@@ -14,7 +14,6 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Timer;
 
 public class GameAssets extends Game {
 
@@ -69,7 +68,7 @@ public class GameAssets extends Game {
 	public static BitmapFont font;
 	public static GlyphLayout layout;
 	public static ShapeRenderer ShapeRenderer;
-	public static File directory;
+	public static File TutorialAssetsDirectory;
 	public static Screen PreviousScreen; // don't use this when there's a screen within a screen (e.g: Main Menu ->
 										 // GameScreen -> Settings), create individuals
 	public static Preferences SaveState;
@@ -208,6 +207,18 @@ public class GameAssets extends Game {
 		font = new BitmapFont(Gdx.files.internal("SharedAssets/Party Confetti Font/PartyConfettiRegular-eZOn3.fnt"));
 		layout = new GlyphLayout();
 		ShapeRenderer = new ShapeRenderer();
+		
+		//Tutorial Images
+		//GameAssets.directory = new File("C:\\Nottingham\\Programs\\COMP1023 Software Engineering Java\\Aunty's Kopitiam\\desktop\\build\\resources\\main\\TutorialAssets");
+		GameAssets.TutorialAssetsDirectory = new File(Gdx.files.internal("TutorialAssets").path());
+		File[] files = GameAssets.TutorialAssetsDirectory.listFiles();
+		TutorialImageCount = files.length;
+		
+		// load resources based on file name
+		for (int i = 0; i < GameAssets.TutorialImageCount; i++) {
+			GameAssets.TutorialImages.add(new Texture("TutorialAssets/" + i + ".png"));
+		}
+		
 		random = new Random();
 
 		InGameMouse = new InGameMouseBehaviour();

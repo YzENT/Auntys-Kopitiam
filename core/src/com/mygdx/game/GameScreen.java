@@ -1,12 +1,9 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen extends ScreenAdapter {
 
@@ -76,8 +73,6 @@ public class GameScreen extends ScreenAdapter {
 		
 		if (!GameAssets.AnimationPlay) { // when animation is playing, user cannot spam click ingredients
 			InputDetection(); // checks for input every frame
-			
-			
 		}
 		else {
 			AnimateIngredients(); // plays the animation
@@ -87,17 +82,15 @@ public class GameScreen extends ScreenAdapter {
 
 		//if time runs out, swap screen
 		if (GameAssets.CountDownTimer.getTimeLeft() == 0) {
-			
+			//logic for current and highets score
 			if (GameAssets.ScoreCount > GameAssets.HighScore) {
 	            GameAssets.HighScoreKeeper.putInteger("highscore", GameAssets.ScoreCount);
 	            GameAssets.HighScoreKeeper.flush();
 	            GameAssets.HighScore = GameAssets.HighScoreKeeper.getInteger("highscore", 0);
 	            System.out.println(GameAssets.HighScore);
 		    }
-			
 			game.setScreen(new PostGameScreen(game));
 		}
-
 		GameAssets.InGameMouse.render(); // render in-game mouse
 	}
 
@@ -259,7 +252,6 @@ public class GameScreen extends ScreenAdapter {
 			GameAssets.IngredientString = GameAssets.IngredientString
 					.concat("\nWater: " + GameAssets.System_WaterCount);
 		}
-
 		GameAssets.font.draw(GameAssets.batch, GameAssets.IngredientString, 100, 1035);
 	}
 
@@ -300,7 +292,6 @@ public class GameScreen extends ScreenAdapter {
 				else {
 					GameAssets.batch.draw(GameAssets.Pour[IngredientIndex], 910 , 414-100);
 				}
-				
 			}
 			else { // animations for liquids and milu powder
 				GameAssets.batch.draw(GameAssets.Pour[IngredientIndex], 938 , 414);

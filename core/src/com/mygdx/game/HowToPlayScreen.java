@@ -1,6 +1,5 @@
 package com.mygdx.game;
 
-import java.io.File;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,13 +15,6 @@ public class HowToPlayScreen extends ScreenAdapter {
 
 	@Override
 	public void show() {
-		//read how file count
-		GameAssets.TutorialImageCount = CountFiles();
-
-		// load resources based on file name
-		for (int i = 0; i < GameAssets.TutorialImageCount; i++) {
-			GameAssets.TutorialImages.add(new Texture("TutorialAssets/" + i + ".png"));
-		}
 		Buttons();
 	}
 
@@ -125,17 +117,6 @@ public class HowToPlayScreen extends ScreenAdapter {
 				GameAssets.PageFlipSFX.play();
 			}
 		}
-	}
-
-	private int CountFiles() {
-		//count how many files in that directory
-		
-		//replace this code
-		//GameAssets.directory = new File("C:\\Nottingham\\Programs\\COMP1023 Software Engineering Java\\Aunty's Kopitiam\\desktop\\build\\resources\\main\\TutorialAssets");
-		GameAssets.directory = new File(Gdx.files.internal("TutorialAssets").path());
-		System.out.println(GameAssets.directory);
-		File[] files = GameAssets.directory.listFiles();
-		return files.length;
 	}
 
 	public void InputDetection() {
