@@ -69,8 +69,6 @@ public class GameAssets extends Game {
 	public static GlyphLayout layout;
 	public static ShapeRenderer ShapeRenderer;
 	public static File TutorialAssetsDirectory;
-	public static Screen PreviousScreen; // don't use this when there's a screen within a screen (e.g: Main Menu ->
-										 // GameScreen -> Settings), create individuals
 	public static Preferences SaveState;
 	public static Random random;
 
@@ -307,8 +305,6 @@ public class GameAssets extends Game {
 		font.dispose();
 		layout = null;
 		ShapeRenderer.dispose();
-		PreviousScreen.dispose();
-
 		InGameMouse.dispose();
 		for (ButtonBehaviour button : MassRender) {
 			button.dispose();
