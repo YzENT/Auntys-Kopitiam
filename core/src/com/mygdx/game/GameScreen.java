@@ -139,7 +139,8 @@ public class GameScreen extends ScreenAdapter {
 		GameAssets.ServeDrinkIcon.dispose();
 		GameAssets.DustbinIcon.dispose();
 		GameAssets.CountDownTimer.dispose();
-
+		AnimateTimer.dispose();
+		
 		for (ButtonBehaviour button : GameAssets.MassRender) {
 			button.dispose();
 		}
@@ -307,5 +308,11 @@ public class GameScreen extends ScreenAdapter {
 			}
 		}
 
+	}
+	
+	public void AnimateSubmitDrink() {
+		// animation plays when player submits drink
+		
+		
 	}
 }
