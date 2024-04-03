@@ -48,6 +48,7 @@ public class GameAssets extends Game {
 	public static Texture Coffee;
 	public static Texture Milo;
 	public static Texture Ice;
+	public static Texture MixingCup;
 	public static Texture MixingCupFront;
 	public static Texture ServeDrinkIcon;
 	public static Texture DustbinIcon;
@@ -174,6 +175,7 @@ public class GameAssets extends Game {
 		Coffee = new Texture(Gdx.files.internal("Texture/Ingredients/Coffee.png"));
 		Milo = new Texture(Gdx.files.internal("Texture/Ingredients/Milo.png"));
 		Ice = new Texture(Gdx.files.internal("Texture/Ingredients/Ice.png"));
+		MixingCup = new Texture(Gdx.files.internal("Texture/Ingredients/MixingCup.png"));
 		MixingCupFront = new Texture(Gdx.files.internal("Texture/Ingredients/MixingCupFront.png"));
 		
 		Pour = new Texture[8];
@@ -288,6 +290,7 @@ public class GameAssets extends Game {
 		Coffee.dispose();
 		Milo.dispose();
 		Ice.dispose();
+		MixingCup.dispose();
 		MixingCupFront.dispose();
 		
 		for (Texture texture : Pour) {

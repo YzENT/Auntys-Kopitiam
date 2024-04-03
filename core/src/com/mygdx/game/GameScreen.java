@@ -65,6 +65,8 @@ public class GameScreen extends ScreenAdapter {
 		GameAssets.batch.draw(GameAssets.CafeBg, 0, 0); // draw background image
 		
 		RenderDrinkCount(); //render ingredients requirements
+		GameAssets.batch.draw(GameAssets.MixingCup, 793 , 173);
+		
 		RenderMathableUI(); //render timer + score
 
 		// render interactive buttons
