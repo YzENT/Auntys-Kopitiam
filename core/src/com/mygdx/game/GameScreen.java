@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.Input;
 
 public class GameScreen extends ScreenAdapter {
 
@@ -70,6 +71,10 @@ public class GameScreen extends ScreenAdapter {
 		for (ButtonBehaviour button : GameAssets.MassRender) {
 			button.render();
 		}
+
+		if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+			pause();
+		}
 		
 		if (!GameAssets.AnimationPlay) { // when animation is playing, user cannot spam click ingredients
 			InputDetection(); // checks for input every frame
@@ -96,6 +101,15 @@ public class GameScreen extends ScreenAdapter {
 
 	@Override
 	public void pause() {
+
+		//pauses all ongoing sound
+		for (Sound CorSound : GameAssets.CorrectDrinkSFX) {
+			CorSound.pause();
+		}
+		for (Sound IncorSound : GameAssets.IncorrectDrinkSFX) {
+			IncorSound.pause();
+		}
+
 		GameAssets.CountDownTimer.pause(); //pauses timer
 		game.setScreen(new PauseMenu(game)); //switches to pause menu
 	}
@@ -145,12 +159,6 @@ public class GameScreen extends ScreenAdapter {
 				
 				switch (i) {
 				case 0:
-					for (Sound CorSound : GameAssets.CorrectDrinkSFX) {
-						CorSound.pause();
-					}
-					for (Sound IncorSound : GameAssets.IncorrectDrinkSFX) {
-						IncorSound.pause();
-					}
 					pause();
 					break;
 				case 1:
