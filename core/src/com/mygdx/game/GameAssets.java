@@ -96,6 +96,15 @@ public class GameAssets extends Game {
 	public static String HighScoreMessage = "High Score: ";
 	public static String IngredientString = "";
 
+	public static String[] TutorialMessage = {
+    "Welcome to Aunty’s Kopitiam!\n\nIn this game, you must make the correct drinks according to the customer’s orders.\nThe more correct orders you complete, the better!",
+    "Customer orders will be given on the board located at the top left of the screen.",
+    "You must click the correct ingredients and add the correct amount\nof each ingredient according to the customer order.",
+    "Once you have made the drink, submit it to the customer by clicking on the tick icon!\nIf you have made a mistake, discard it by clicking on the dustbin icon.",
+    "The time left and number of drinks you have\ncorrectly made are located at top of screen.",
+    "You can pause game by clicking pause button at top right."
+};
+
 	// Ingredient counts
 	public static int System_SugarCount;
 	public static int System_IceCount;
