@@ -15,6 +15,9 @@ public class HowToPlayScreen extends ScreenAdapter {
 
 	@Override
 	public void show() {
+		// adjusting font data
+		GameAssets.font.getData().setScale((float) 0.3);
+		GameAssets.font.setColor(1, 1, 1, 1);
 		Buttons();
 	}
 
@@ -74,6 +77,11 @@ public class HowToPlayScreen extends ScreenAdapter {
 				button.render();
 			}
 		}
+
+		//render text
+		GameAssets.layout.setText(GameAssets.font, GameAssets.TutorialMessage[GameAssets.TutorialImageIndex]);
+		GameAssets.font.draw(GameAssets.batch, GameAssets.TutorialMessage[GameAssets.TutorialImageIndex], (Gdx.graphics.getWidth() - GameAssets.layout.width) / 2,
+(Gdx.graphics.getHeight() / 4) + (GameAssets.layout.height / 2));
 
 		GameAssets.batch.end(); // end of rendering
 		GameAssets.InGameMouse.render(); // render in game mouse
