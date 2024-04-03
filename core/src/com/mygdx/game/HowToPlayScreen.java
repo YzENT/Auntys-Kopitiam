@@ -81,7 +81,7 @@ public class HowToPlayScreen extends ScreenAdapter {
 		//render text
 		GameAssets.layout.setText(GameAssets.font, GameAssets.TutorialMessage[GameAssets.TutorialImageIndex]);
 		GameAssets.font.draw(GameAssets.batch, GameAssets.TutorialMessage[GameAssets.TutorialImageIndex], (Gdx.graphics.getWidth() - GameAssets.layout.width) / 2,
-(Gdx.graphics.getHeight() / 4) + (GameAssets.layout.height / 2));
+(Gdx.graphics.getHeight() / 3) + (GameAssets.layout.height / 2));
 
 		GameAssets.batch.end(); // end of rendering
 		GameAssets.InGameMouse.render(); // render in game mouse
