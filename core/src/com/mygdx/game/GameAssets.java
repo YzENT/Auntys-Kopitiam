@@ -142,21 +142,21 @@ public class GameAssets extends Game {
 
 		MainMenuBg = new Texture(Gdx.files.internal("SharedAssets/GameMenuBg.png"));
 		MainMenuBg_Blur = new Texture(Gdx.files.internal("SharedAssets/GameMenuBg_Blur.png"));
-		PlayGameButton = new Texture(Gdx.files.internal("MainMenuAssets/PlayGameButton.png"));
-		HowToPlayButton = new Texture(Gdx.files.internal("MainMenuAssets/HowToPlayButton.png"));
-		AboutButton = new Texture(Gdx.files.internal("MainMenuAssets/AboutButton.png"));
-		QuitButton = new Texture(Gdx.files.internal("MainMenuAssets/QuitButton.png"));
-		SettingsIcon = new Texture(Gdx.files.internal("SharedAssets/SettingsIcon.png"));
+		PlayGameButton = new Texture(Gdx.files.internal("Texture/MainMenu/PlayGameButton.png"));
+		HowToPlayButton = new Texture(Gdx.files.internal("Texture/MainMenu/HowToPlayButton.png"));
+		AboutButton = new Texture(Gdx.files.internal("Texture/MainMenu/AboutButton.png"));
+		QuitButton = new Texture(Gdx.files.internal("Texture/MainMenu/QuitButton.png"));
+		SettingsIcon = new Texture(Gdx.files.internal("Texture/Buttons/SettingsIcon.png"));
 		CafeBg = new Texture(Gdx.files.internal("SharedAssets/CafeBg.png"));
 		CafeBg_Blur = new Texture(Gdx.files.internal("SharedAssets/CafeBg_Blur.png"));
-		DialogTexture = new Texture(Gdx.files.internal("SecondaryOverlay/Overlay.png"));
+		DialogTexture = new Texture(Gdx.files.internal("Texture/Miscellaneous/Overlay.png"));
 		TutorialImages = new Array<>();
-		LeftArrowKey = new Texture(Gdx.files.internal("Texture/LeftArrowKey.png"));
-		RightArrowKey = new Texture(Gdx.files.internal("Texture/RightArrowKey.png"));
-		ReturnIcon = new Texture(Gdx.files.internal("SharedAssets/ReturnIcon.png"));
-		PauseIcon = new Texture(Gdx.files.internal("Texture/PauseIcon.png"));
-		ResumeIcon = new Texture(Gdx.files.internal("Texture/ResumeIcon.png"));
-		HomeIcon = new Texture(Gdx.files.internal("Texture/HomeIcon.png"));
+		LeftArrowKey = new Texture(Gdx.files.internal("Texture/Buttons/LeftArrowKey.png"));
+		RightArrowKey = new Texture(Gdx.files.internal("Texture/Buttons/RightArrowKey.png"));
+		ReturnIcon = new Texture(Gdx.files.internal("Texture/Buttons/ReturnIcon.png"));
+		PauseIcon = new Texture(Gdx.files.internal("Texture/Buttons/PauseIcon.png"));
+		ResumeIcon = new Texture(Gdx.files.internal("Texture/Buttons/ResumeIcon.png"));
+		HomeIcon = new Texture(Gdx.files.internal("Texture/Buttons/HomeIcon.png"));
 		Tea = new Texture(Gdx.files.internal("Texture/Ingredients/Tea.png"));
 		Milk = new Texture(Gdx.files.internal("Texture/Ingredients/Milk.png"));
 		Water = new Texture(Gdx.files.internal("Texture/Ingredients/Water.png"));
@@ -177,13 +177,13 @@ public class GameAssets extends Game {
 		Pour[6] = new Texture(Gdx.files.internal("Texture/Ingredients/MiluPour.png"));
 		Pour[7] = new Texture(Gdx.files.internal("Texture/Ingredients/IcePour.png"));
 		
-		ServeDrinkIcon = new Texture(Gdx.files.internal("Texture/ServeDrinkIcon.png"));
-		DustbinIcon = new Texture(Gdx.files.internal("Texture/DustbinIcon.png"));
-		VolumeUnmuteIcon = new Texture(Gdx.files.internal("Texture/VolumeUnmuteIcon.png"));
-		VolumeMuteIcon = new Texture(Gdx.files.internal("Texture/VolumeMuteIcon.png"));
-		GoBackMainMenu = new Texture(Gdx.files.internal("Texture/GoBackMainMenu.png"));
+		ServeDrinkIcon = new Texture(Gdx.files.internal("Texture/Buttons/ServeDrinkIcon.png"));
+		DustbinIcon = new Texture(Gdx.files.internal("Texture/Buttons/DustbinIcon.png"));
+		VolumeUnmuteIcon = new Texture(Gdx.files.internal("Texture/Buttons/VolumeUnmuteIcon.png"));
+		VolumeMuteIcon = new Texture(Gdx.files.internal("Texture/Buttons/VolumeMuteIcon.png"));
+		GoBackMainMenu = new Texture(Gdx.files.internal("Texture/Buttons/GoBackMainMenu.png"));
 
-		cursorPixmap = new Pixmap(Gdx.files.internal("EmptyImage.png"));
+		cursorPixmap = new Pixmap(Gdx.files.internal("SharedAssets/EmptyImage.png"));
 		MouseClickSFX = Gdx.audio.newSound(Gdx.files.internal("SharedAssets/MouseClick.mp3"));
 		PageFlipSFX = Gdx.audio.newSound(Gdx.files.internal("SharedAssets/PageFlip.mp3"));
 
@@ -287,6 +287,8 @@ public class GameAssets extends Game {
 		
 		ServeDrinkIcon.dispose();
 		DustbinIcon.dispose();
+		VolumeUnmuteIcon.dispose();
+		VolumeMuteIcon.dispose();
 		GoBackMainMenu.dispose();
 
 		cursorPixmap.dispose();
