@@ -33,14 +33,14 @@ public class HowToPlayScreen extends ScreenAdapter {
 
 		// Left Arrow Key
 		GameAssets.MassRender[1] = new ButtonBehaviour(GameAssets.LeftArrowKey,
-				(Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2,
+				((Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2)+20,
 				(Gdx.graphics.getHeight() - GameAssets.LeftArrowKey.getHeight()) / 2,
 				GameAssets.LeftArrowKey.getWidth(), GameAssets.LeftArrowKey.getHeight(), game);
 
 		// Right Arrow Key
 		GameAssets.MassRender[2] = new ButtonBehaviour(GameAssets.RightArrowKey,
 				Gdx.graphics.getWidth() - GameAssets.RightArrowKey.getWidth()
-						- ((Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2),
+						- ((Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2)-20,
 				(Gdx.graphics.getHeight() - GameAssets.RightArrowKey.getHeight()) / 2,
 				GameAssets.RightArrowKey.getWidth(), GameAssets.RightArrowKey.getHeight(), game);
 
