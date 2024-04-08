@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.audio.Music;
 
 public class GameAssets extends Game {
 
@@ -133,6 +134,10 @@ public class GameAssets extends Game {
 	public static Sound[] CorrectDrinkSFX;
 	public static Sound[] IncorrectDrinkSFX;
 	
+	//In-game Music
+	public static Sound MusicIntro;
+	public static Music MusicMain;
+	
 	//Miscellaneous
 	public static boolean SFXToggle = true;
 	public static boolean MusicToggle = true;
@@ -211,6 +216,10 @@ public class GameAssets extends Game {
 		IncorrectDrinkSFX[2] = Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/LoudBuzzer.mp3"));
 		IncorrectDrinkSFX[3] = Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/LoudSiren.mp3"));
 		IncorrectDrinkSFX[4] = Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/TiktokJamalMeme.mp3"));
+		
+		MusicIntro = Gdx.audio.newSound(Gdx.files.internal("Sound/Music/Intro.mp3"));
+		MusicIntro.play();
+		MusicMain = Gdx.audio.newMusic(Gdx.files.internal("Sound/Music/Main.mp3"));
 		
 		batch = new SpriteBatch();
 		font = new BitmapFont(Gdx.files.internal("SharedAssets/Party Confetti Font/PartyConfettiRegular-eZOn3.fnt"));
@@ -314,6 +323,9 @@ public class GameAssets extends Game {
 		for (Sound IncorSound : IncorrectDrinkSFX) {
 			IncorSound.dispose();
 		}
+		
+		MusicIntro.dispose();
+		MusicMain.dispose();
 
 		batch.dispose();
 		font.dispose();
