@@ -71,12 +71,8 @@ public class PauseMenu extends ScreenAdapter {
 				switch (i) {
 				case 0:
 					GameAssets.CountDownTimer.resume();
-					for (Sound CorSound : GameAssets.CorrectDrinkSFX) {
-						CorSound.resume();
-					}
-					for (Sound IncorSound : GameAssets.IncorrectDrinkSFX) {
-						IncorSound.resume();
-					}
+					GameAssets.CorrectDrinkSFX.resume();
+					GameAssets.IncorrectDrinkSFX.resume();
 					game.setScreen(new GameScreen(game));
 					break;
 				case 1:

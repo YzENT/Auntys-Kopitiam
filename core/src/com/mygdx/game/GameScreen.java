@@ -105,12 +105,8 @@ public class GameScreen extends ScreenAdapter {
 	public void pause() {
 
 		//pauses all ongoing sound
-		for (Sound CorSound : GameAssets.CorrectDrinkSFX) {
-			CorSound.pause();
-		}
-		for (Sound IncorSound : GameAssets.IncorrectDrinkSFX) {
-			IncorSound.pause();
-		}
+		GameAssets.CorrectDrinkSFX.pause();
+		GameAssets.IncorrectDrinkSFX.pause();
 
 		GameAssets.CountDownTimer.pause(); //pauses timer
 		game.setScreen(new PauseMenu(game)); //switches to pause menu

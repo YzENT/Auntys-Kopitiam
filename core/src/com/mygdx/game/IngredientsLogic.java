@@ -115,25 +115,18 @@ public class IngredientsLogic{
 	
 	public void CorrectDrinkSFX() {
 		if (GameAssets.SFXToggle) {
-			GameAssets.CorrectDrinkSFX[GameAssets.random.nextInt(5)].play();
-			
-			
+			GameAssets.CorrectDrinkSFX.play();
 		}
 	}
 	
 	public void IncorrectDrinkSFX() {
 		if (GameAssets.SFXToggle) {
-			GameAssets.IncorrectDrinkSFX[GameAssets.random.nextInt(5)].play();
+			GameAssets.IncorrectDrinkSFX.play();
 		}
 	}
 	
 	public void dispose() {
-		for (Sound CorSound : GameAssets.CorrectDrinkSFX) {
-			CorSound.dispose();
-		}
-
-		for (Sound IncorSound : GameAssets.IncorrectDrinkSFX) {
-			IncorSound.dispose();
-		}
+		GameAssets.CorrectDrinkSFX.dispose();
+		GameAssets.IncorrectDrinkSFX.dispose();
 	}
 }

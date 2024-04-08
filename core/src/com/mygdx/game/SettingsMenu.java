@@ -102,9 +102,11 @@ public class SettingsMenu extends ScreenAdapter {
 				case 2:
 					if (GameAssets.MusicToggle) {
 						GameAssets.MusicToggle = false;
+						GameAssets.MusicMain.setVolume(0);
 					}
 					else if (!GameAssets.MusicToggle) {
 						GameAssets.MusicToggle = true;
+						GameAssets.MusicMain.setVolume(1);
 					}
 				default:
 					break;

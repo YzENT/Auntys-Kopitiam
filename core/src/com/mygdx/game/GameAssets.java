@@ -5,7 +5,6 @@ import java.util.Random;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -131,11 +130,10 @@ public class GameAssets extends Game {
 	public static Preferences HighScoreKeeper;
 	
 	//In-game SFX's
-	public static Sound[] CorrectDrinkSFX;
-	public static Sound[] IncorrectDrinkSFX;
+	public static Sound CorrectDrinkSFX;
+	public static Sound IncorrectDrinkSFX;
 	
 	//In-game Music
-	public static Sound MusicIntro;
 	public static Music MusicMain;
 	
 	//Miscellaneous
@@ -202,24 +200,13 @@ public class GameAssets extends Game {
 		cursorPixmap = new Pixmap(Gdx.files.internal("SharedAssets/EmptyImage.png"));
 		MouseClickSFX = Gdx.audio.newSound(Gdx.files.internal("SharedAssets/MouseClick.mp3"));
 		PageFlipSFX = Gdx.audio.newSound(Gdx.files.internal("SharedAssets/PageFlip.mp3"));
-
-		CorrectDrinkSFX = new Sound[5];
-		CorrectDrinkSFX[0] = Gdx.audio.newSound(Gdx.files.internal("Sound/CorrectDrink/CorrectBuzzer.mp3"));
-		CorrectDrinkSFX[1] = Gdx.audio.newSound(Gdx.files.internal("Sound/CorrectDrink/DonPolloWaitWait.mp3"));
-		CorrectDrinkSFX[2] = Gdx.audio.newSound(Gdx.files.internal("Sound/CorrectDrink/MetroBoominMakeItBoom.mp3"));
-		CorrectDrinkSFX[3] = Gdx.audio.newSound(Gdx.files.internal("Sound/CorrectDrink/NewBugatti.mp3"));
-		CorrectDrinkSFX[4] = Gdx.audio.newSound(Gdx.files.internal("Sound/CorrectDrink/OhMaGawh.mp3"));
 		
-		IncorrectDrinkSFX = new Sound[5];
-		IncorrectDrinkSFX[0] = Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/BruhSlowed.mp3"));
-		IncorrectDrinkSFX[1] = Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/DramaticFart.mp3"));
-		IncorrectDrinkSFX[2] = Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/LoudBuzzer.mp3"));
-		IncorrectDrinkSFX[3] = Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/LoudSiren.mp3"));
-		IncorrectDrinkSFX[4] = Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/TiktokJamalMeme.mp3"));
+		CorrectDrinkSFX= Gdx.audio.newSound(Gdx.files.internal("Sound/CorrectDrink/CorrectBuzzer.mp3"));
+		IncorrectDrinkSFX= Gdx.audio.newSound(Gdx.files.internal("Sound/WrongDrink/LoudBuzzer.mp3"));
 		
-		MusicIntro = Gdx.audio.newSound(Gdx.files.internal("Sound/Music/Intro.mp3"));
-		MusicIntro.play();
 		MusicMain = Gdx.audio.newMusic(Gdx.files.internal("Sound/Music/Main.mp3"));
+		MusicMain.setLooping(true);
+		MusicMain.play();
 		
 		batch = new SpriteBatch();
 		font = new BitmapFont(Gdx.files.internal("SharedAssets/Party Confetti Font/PartyConfettiRegular-eZOn3.fnt"));
@@ -227,7 +214,6 @@ public class GameAssets extends Game {
 		ShapeRenderer = new ShapeRenderer();
 		
 		//Tutorial Images
-		//GameAssets.directory = new File("C:\\Nottingham\\Programs\\COMP1023 Software Engineering Java\\Aunty's Kopitiam\\desktop\\build\\resources\\main\\TutorialAssets");
 		GameAssets.TutorialAssetsDirectory = new File(Gdx.files.internal("TutorialAssets").path());
 		File[] files = GameAssets.TutorialAssetsDirectory.listFiles();
 		TutorialImageCount = files.length;
@@ -316,15 +302,9 @@ public class GameAssets extends Game {
 		MouseClickSFX.dispose();
 		PageFlipSFX.dispose();
 		
-		for (Sound CorSound : CorrectDrinkSFX) {
-			CorSound.dispose();
-		}
-
-		for (Sound IncorSound : IncorrectDrinkSFX) {
-			IncorSound.dispose();
-		}
+		CorrectDrinkSFX.dispose();
+		IncorrectDrinkSFX.dispose();
 		
-		MusicIntro.dispose();
 		MusicMain.dispose();
 
 		batch.dispose();
