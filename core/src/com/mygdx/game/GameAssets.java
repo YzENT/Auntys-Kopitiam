@@ -18,8 +18,8 @@ import com.badlogic.gdx.audio.Music;
 public class GameAssets extends Game {
 
 	/*
-	 * Please use this class for resource efficiency so that classes don't have to
-	 * initialize resources every time a new screen is being called.
+	 * Please use this class for initialization of data to achieve resource efficiency so that 
+	 * classes don't have to initialize resources every time a new screen is being called.
 	 */
 
 	// Textures
@@ -33,7 +33,7 @@ public class GameAssets extends Game {
 	public static Texture CafeBg;
 	public static Texture CafeBg_Blur;
 	public static Texture DialogTexture;
-	public static Array<Texture> TutorialImages; // Array of textures for efficiency in adding/removing tutorial images
+	public static Array<Texture> TutorialImages; // Array of textures for tutorial images
 	public static Texture LeftArrowKey;
 	public static Texture RightArrowKey;
 	public static Texture ReturnIcon;
@@ -70,7 +70,6 @@ public class GameAssets extends Game {
 	public static GlyphLayout layout;
 	public static ShapeRenderer ShapeRenderer;
 	public static File TutorialAssetsDirectory;
-	public static Preferences SaveState;
 	public static Random random;
 
 	// Custom Classes shared across the game
@@ -134,7 +133,7 @@ public class GameAssets extends Game {
 	public static Sound IncorrectDrinkSFX;
 	
 	//In-game Music
-	public static Music MusicMain;
+	public static Music MusicMain; //https://youtu.be/GoWgI1V_WDA?si=MKF4WJJX9ijCF5LQ
 	
 	//Miscellaneous
 	public static boolean SFXToggle = true;
@@ -214,6 +213,7 @@ public class GameAssets extends Game {
 		ShapeRenderer = new ShapeRenderer();
 		
 		//Tutorial Images
+		//Please note this code will have bug if the command `gradlew desktop:dist` is executed instead of `gradlew desktop:run`
 		GameAssets.TutorialAssetsDirectory = new File(Gdx.files.internal("TutorialAssets").path());
 		File[] files = GameAssets.TutorialAssetsDirectory.listFiles();
 		TutorialImageCount = files.length;
@@ -240,7 +240,7 @@ public class GameAssets extends Game {
 		// Retrieve the high score from the preferences file
 		HighScore = HighScoreKeeper.getInteger("highscore");
 
-
+		//set screen to main menu
 		this.setScreen(new MainMenuScreen(this));
 	}
 
@@ -251,7 +251,7 @@ public class GameAssets extends Game {
 	public void dispose() {
 
 		/*
-		 * Disposal of unused resources
+		 * Disposal of resources used in this class
 		 */
 
 		MainMenuBg.dispose();
@@ -264,8 +264,6 @@ public class GameAssets extends Game {
 		CafeBg.dispose();
 		CafeBg_Blur.dispose();
 		DialogTexture.dispose();
-		VolumeUnmuteIcon.dispose();
-		VolumeMuteIcon.dispose();
 		
 		for (Texture texture : TutorialImages) {
 			texture.dispose();
@@ -287,16 +285,16 @@ public class GameAssets extends Game {
 		Ice.dispose();
 		MixingCup.dispose();
 		MixingCupFront.dispose();
-		
-		for (Texture texture : Pour) {
-			texture.dispose();
-		}
-		
+
 		ServeDrinkIcon.dispose();
 		DustbinIcon.dispose();
 		VolumeUnmuteIcon.dispose();
 		VolumeMuteIcon.dispose();
 		GoBackMainMenu.dispose();
+	
+		for (Texture texture : Pour) {
+			texture.dispose();
+		}
 
 		cursorPixmap.dispose();
 		MouseClickSFX.dispose();

@@ -28,33 +28,94 @@ public class GameScreen extends ScreenAdapter {
 		GameAssets.MassRender = new ButtonBehaviour[11];
 
 		// Pause icon
-		GameAssets.MassRender[0] = new ButtonBehaviour(GameAssets.PauseIcon,
-				(Gdx.graphics.getWidth() - (GameAssets.PauseIcon.getWidth() * 1.2f)),
-				(Gdx.graphics.getHeight() - (GameAssets.PauseIcon.getHeight() * 1.2f)), GameAssets.PauseIcon.getWidth(),
-				GameAssets.PauseIcon.getHeight(), game);
+		GameAssets.MassRender[0] = new ButtonBehaviour(
+			GameAssets.PauseIcon,
+			(Gdx.graphics.getWidth() - (GameAssets.PauseIcon.getWidth() * 1.2f)),
+			(Gdx.graphics.getHeight() - (GameAssets.PauseIcon.getHeight() * 1.2f)), 
+			GameAssets.PauseIcon.getWidth(),
+			GameAssets.PauseIcon.getHeight(), 
+			game);
 
-		// render ingredients
-		GameAssets.MassRender[1] = new ButtonBehaviour(GameAssets.Tea, 120, 505, GameAssets.Tea.getWidth(),
-				GameAssets.Tea.getHeight(), game);
-		GameAssets.MassRender[2] = new ButtonBehaviour(GameAssets.Milk, 470, 480, GameAssets.Milk.getWidth(),
-				GameAssets.Milk.getHeight(), game);
-		GameAssets.MassRender[3] = new ButtonBehaviour(GameAssets.Water, 135, 180, GameAssets.Water.getWidth(),
-				GameAssets.Water.getHeight(), game);
-		GameAssets.MassRender[4] = new ButtonBehaviour(GameAssets.Syrup, 495, 180, GameAssets.Syrup.getWidth(),
-				GameAssets.Syrup.getHeight(), game);
-		GameAssets.MassRender[5] = new ButtonBehaviour(GameAssets.Sugar, 1275, 505, GameAssets.Sugar.getWidth(),
-				GameAssets.Sugar.getHeight(), game);
-		GameAssets.MassRender[6] = new ButtonBehaviour(GameAssets.Coffee, 1585, 505, GameAssets.Coffee.getWidth(),
-				GameAssets.Coffee.getHeight(), game);
-		GameAssets.MassRender[7] = new ButtonBehaviour(GameAssets.Milo, 1275, 180, GameAssets.Milo.getWidth(),
-				GameAssets.Milo.getHeight(), game);
-		GameAssets.MassRender[8] = new ButtonBehaviour(GameAssets.Ice, 1585, 200, GameAssets.Ice.getWidth(),
-				GameAssets.Ice.getHeight(), game);
+		// Ingredients
+		GameAssets.MassRender[1] = new ButtonBehaviour(
+			GameAssets.Tea, 
+			120, 
+			505, 
+			GameAssets.Tea.getWidth(),
+			GameAssets.Tea.getHeight(), 
+			game);
 
-		GameAssets.MassRender[9] = new ButtonBehaviour(GameAssets.ServeDrinkIcon, 770, 20,
-				GameAssets.ServeDrinkIcon.getWidth(), GameAssets.ServeDrinkIcon.getHeight(), game);
-		GameAssets.MassRender[10] = new ButtonBehaviour(GameAssets.DustbinIcon, 1000, 20,
-				GameAssets.DustbinIcon.getWidth(), GameAssets.DustbinIcon.getHeight(), game);
+		GameAssets.MassRender[2] = new ButtonBehaviour(
+			GameAssets.Milk, 
+			470, 
+			480, 
+			GameAssets.Milk.getWidth(),
+			GameAssets.Milk.getHeight(), 
+			game);
+
+		GameAssets.MassRender[3] = new ButtonBehaviour(
+			GameAssets.Water, 
+			135, 
+			180, 
+			GameAssets.Water.getWidth(),
+			GameAssets.Water.getHeight(), 
+			game);
+
+		GameAssets.MassRender[4] = new ButtonBehaviour(
+			GameAssets.Syrup, 
+			495, 
+			180, 
+			GameAssets.Syrup.getWidth(),
+			GameAssets.Syrup.getHeight(),
+			game);
+
+		GameAssets.MassRender[5] = new ButtonBehaviour(
+			GameAssets.Sugar, 
+			1275, 
+			505, 
+			GameAssets.Sugar.getWidth(),
+			GameAssets.Sugar.getHeight(),
+			game);
+
+		GameAssets.MassRender[6] = new ButtonBehaviour(
+			GameAssets.Coffee, 
+			1585, 
+			505, 
+			GameAssets.Coffee.getWidth(),
+			GameAssets.Coffee.getHeight(), 
+			game);
+
+		GameAssets.MassRender[7] = new ButtonBehaviour(
+			GameAssets.Milo, 
+			1275, 
+			180, 
+			GameAssets.Milo.getWidth(),
+			GameAssets.Milo.getHeight(), 
+			game);
+
+		GameAssets.MassRender[8] = new ButtonBehaviour(
+			GameAssets.Ice, 
+			1585, 
+			200, 
+			GameAssets.Ice.getWidth(),
+			GameAssets.Ice.getHeight(), 
+			game);
+
+		GameAssets.MassRender[9] = new ButtonBehaviour(
+			GameAssets.ServeDrinkIcon, 
+			770, 
+			20,
+			GameAssets.ServeDrinkIcon.getWidth(), 
+			GameAssets.ServeDrinkIcon.getHeight(), 
+			game);
+
+		GameAssets.MassRender[10] = new ButtonBehaviour(
+			GameAssets.DustbinIcon, 
+			1000, 
+			20,
+			GameAssets.DustbinIcon.getWidth(), 
+			GameAssets.DustbinIcon.getHeight(), 
+			game);
 	}
 
 	@Override
@@ -74,6 +135,7 @@ public class GameScreen extends ScreenAdapter {
 			button.render();
 		}
 
+		//if "ESC" key is pressed, trigger pause method
 		if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
 			pause();
 		}
@@ -151,6 +213,7 @@ public class GameScreen extends ScreenAdapter {
 			if (GameAssets.MassRender[i].getRectangle().contains(Gdx.input.getX(),
 					Gdx.graphics.getHeight() - Gdx.input.getY()) && Gdx.input.justTouched() ) {
 				
+				//if it falls within the range of ingredient then toggle animation
 				if (i != 0 && i < 9) {
 					resetAnimation = true;
 					GameAssets.AnimationPlay = true;
@@ -216,7 +279,7 @@ public class GameScreen extends ScreenAdapter {
 	public void AlternateTimerColour() {
 		GameAssets.font.setColor(1, 1, 1, 1); //set font to white (bug may occur without this)
 		if (GameAssets.CountDownTimer.getTimeLeft() <= 10) { //if timer is less than 10
-			if (GameAssets.CountDownTimer.getTimeLeft() % 2 == 0) { //if value is a factor of 2
+			if (GameAssets.CountDownTimer.getTimeLeft() % 2 == 0) { //if value is divisable by 2
 				GameAssets.font.setColor(1, 0, 0, 1); //set it to red
 			} else {
 				GameAssets.font.setColor(1, 1, 1, 1); //alternate it to white
@@ -307,10 +370,5 @@ public class GameScreen extends ScreenAdapter {
 		}
 
 	}
-	
-	public void AnimateSubmitDrink() {
-		// animation plays when player submits drink
-		
-		
-	}
+
 }

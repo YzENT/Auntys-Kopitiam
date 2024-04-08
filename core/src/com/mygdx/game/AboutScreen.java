@@ -29,13 +29,21 @@ public class AboutScreen extends ScreenAdapter {
 		GameAssets.batch.begin(); // begin rendering
 
 		// Render MainMenuBg
-		GameAssets.batch.draw(GameAssets.MainMenuBg_Blur, 0, 0, GameAssets.MainMenuBg_Blur.getWidth(),
-				GameAssets.MainMenuBg_Blur.getHeight());
+		GameAssets.batch.draw(
+			GameAssets.MainMenuBg_Blur, 
+			0, 
+			0, 
+			GameAssets.MainMenuBg_Blur.getWidth(),
+			GameAssets.MainMenuBg_Blur.getHeight()
+		);
 
 		// render AboutMessage
-		GameAssets.font.draw(GameAssets.batch, GameAssets.AboutMessage,
-				(Gdx.graphics.getWidth() - GameAssets.layout.width) / 2,
-				(Gdx.graphics.getHeight() / 2) + (GameAssets.layout.height / 2));
+		GameAssets.font.draw(
+			GameAssets.batch, 
+			GameAssets.AboutMessage,
+			(Gdx.graphics.getWidth() - GameAssets.layout.width) / 2,
+			(Gdx.graphics.getHeight() / 2) + (GameAssets.layout.height / 2)
+		);
 
 		GameAssets.batch.end(); // end of rendering
 		GameAssets.InGameMouse.render(); // in game mouse
@@ -57,7 +65,7 @@ public class AboutScreen extends ScreenAdapter {
 	}
 	
 	public void InputDetection() {
-		// Use to return to previous screen (Though only accessible via Main Menu)
+		// Return to main menu when ESC key is pressed
 		if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
 			game.setScreen(new MainMenuScreen(game));
 		}

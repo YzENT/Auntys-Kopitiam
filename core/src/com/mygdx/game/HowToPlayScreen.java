@@ -26,23 +26,31 @@ public class HowToPlayScreen extends ScreenAdapter {
 		GameAssets.MassRender = new ButtonBehaviour[3];
 
 		// BackArrowKey Icon
-		GameAssets.MassRender[0] = new ButtonBehaviour(GameAssets.ReturnIcon,
-				GameAssets.ReturnIcon.getWidth() * 0.2f,
-				(Gdx.graphics.getHeight() - (GameAssets.ReturnIcon.getHeight() * 1.2f)),
-				GameAssets.ReturnIcon.getWidth(), GameAssets.ReturnIcon.getHeight(), game);
+		GameAssets.MassRender[0] = new ButtonBehaviour(
+			GameAssets.ReturnIcon,
+			GameAssets.ReturnIcon.getWidth() * 0.2f,
+			(Gdx.graphics.getHeight() - (GameAssets.ReturnIcon.getHeight() * 1.2f)),
+			GameAssets.ReturnIcon.getWidth(), 
+			GameAssets.ReturnIcon.getHeight(), 
+			game);
 
 		// Left Arrow Key
-		GameAssets.MassRender[1] = new ButtonBehaviour(GameAssets.LeftArrowKey,
-				((Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2)+20,
-				(Gdx.graphics.getHeight() - GameAssets.LeftArrowKey.getHeight()) / 2,
-				GameAssets.LeftArrowKey.getWidth(), GameAssets.LeftArrowKey.getHeight(), game);
+		GameAssets.MassRender[1] = new ButtonBehaviour(
+			GameAssets.LeftArrowKey,
+			((Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2)+20,
+			(Gdx.graphics.getHeight() - GameAssets.LeftArrowKey.getHeight()) / 2,
+			GameAssets.LeftArrowKey.getWidth(), 
+			GameAssets.LeftArrowKey.getHeight(), 
+			game);
 
 		// Right Arrow Key
-		GameAssets.MassRender[2] = new ButtonBehaviour(GameAssets.RightArrowKey,
-				Gdx.graphics.getWidth() - GameAssets.RightArrowKey.getWidth()
-						- ((Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2)-20,
-				(Gdx.graphics.getHeight() - GameAssets.RightArrowKey.getHeight()) / 2,
-				GameAssets.RightArrowKey.getWidth(), GameAssets.RightArrowKey.getHeight(), game);
+		GameAssets.MassRender[2] = new ButtonBehaviour(
+			GameAssets.RightArrowKey,
+			Gdx.graphics.getWidth() - GameAssets.RightArrowKey.getWidth() - ((Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2)-20,
+			(Gdx.graphics.getHeight() - GameAssets.RightArrowKey.getHeight()) / 2,
+			GameAssets.RightArrowKey.getWidth(), 
+			GameAssets.RightArrowKey.getHeight(), 
+			game);
 
 	}
 
@@ -54,19 +62,29 @@ public class HowToPlayScreen extends ScreenAdapter {
 		GameAssets.batch.begin(); // rendering begins
 
 		// Render MainMenuBg
-		GameAssets.batch.draw(GameAssets.MainMenuBg_Blur, 0, 0, GameAssets.MainMenuBg_Blur.getWidth(),
-				GameAssets.MainMenuBg_Blur.getHeight());
+		GameAssets.batch.draw(
+			GameAssets.MainMenuBg_Blur, 
+			0, 
+			0, 
+			GameAssets.MainMenuBg_Blur.getWidth(),
+			GameAssets.MainMenuBg_Blur.getHeight()
+		);
 
 		// Render Dialog Texture
-		GameAssets.batch.draw(GameAssets.DialogTexture,
-				(Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2,
-				(Gdx.graphics.getHeight() - GameAssets.DialogTexture.getHeight()) / 2,
-				GameAssets.DialogTexture.getWidth(), GameAssets.DialogTexture.getHeight());
+		GameAssets.batch.draw(
+			GameAssets.DialogTexture,
+			(Gdx.graphics.getWidth() - GameAssets.DialogTexture.getWidth()) / 2,
+			(Gdx.graphics.getHeight() - GameAssets.DialogTexture.getHeight()) / 2,
+			GameAssets.DialogTexture.getWidth(), 
+			GameAssets.DialogTexture.getHeight()
+		);
 
 		// Render Tutorial Images based on value 'GameAssets.TutorialImageIndex'
-		GameAssets.batch.draw(GameAssets.TutorialImages.get(GameAssets.TutorialImageIndex),
-				(Gdx.graphics.getWidth() - GameAssets.TutorialImages.get(GameAssets.TutorialImageIndex).getWidth()) / 2,
-				(Gdx.graphics.getHeight() - GameAssets.TutorialImages.get(GameAssets.TutorialImageIndex).getHeight()) * 0.75f);
+		GameAssets.batch.draw(
+			GameAssets.TutorialImages.get(GameAssets.TutorialImageIndex),
+			(Gdx.graphics.getWidth() - GameAssets.TutorialImages.get(GameAssets.TutorialImageIndex).getWidth()) / 2,
+			(Gdx.graphics.getHeight() - GameAssets.TutorialImages.get(GameAssets.TutorialImageIndex).getHeight()) * 0.75f
+		);
 
 		// render interactive buttons
 		for (int i = 0; i < GameAssets.MassRender.length; i++) {
@@ -80,8 +98,12 @@ public class HowToPlayScreen extends ScreenAdapter {
 
 		//render text
 		GameAssets.layout.setText(GameAssets.font, GameAssets.TutorialMessage[GameAssets.TutorialImageIndex]);
-		GameAssets.font.draw(GameAssets.batch, GameAssets.TutorialMessage[GameAssets.TutorialImageIndex], (Gdx.graphics.getWidth() - GameAssets.layout.width) / 2,
-(Gdx.graphics.getHeight() / 3) + (GameAssets.layout.height / 2));
+		GameAssets.font.draw(
+			GameAssets.batch, 
+			GameAssets.TutorialMessage[GameAssets.TutorialImageIndex], 
+			(Gdx.graphics.getWidth() - GameAssets.layout.width) / 2,
+			(Gdx.graphics.getHeight() / 3) + (GameAssets.layout.height / 2)
+		);
 
 		GameAssets.batch.end(); // end of rendering
 		GameAssets.InGameMouse.render(); // render in game mouse
@@ -110,6 +132,7 @@ public class HowToPlayScreen extends ScreenAdapter {
 	}
 
 	private void nextImage() {
+	//method to proceed to next image
 		if (GameAssets.TutorialImageIndex < GameAssets.TutorialImageCount - 1) {
 			GameAssets.TutorialImageIndex = GameAssets.TutorialImageIndex + 1;
 			if (GameAssets.SFXToggle) {
@@ -119,6 +142,7 @@ public class HowToPlayScreen extends ScreenAdapter {
 	}
 
 	private void previousImage() {
+	//method to return to previous image
 		if (GameAssets.TutorialImageIndex > 0) {
 			GameAssets.TutorialImageIndex = GameAssets.TutorialImageIndex - 1;
 			if (GameAssets.SFXToggle) {

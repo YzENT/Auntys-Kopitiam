@@ -24,10 +24,13 @@ public class PostGameScreen extends ScreenAdapter {
 	public void Buttons() {
 		GameAssets.MassRender = new ButtonBehaviour[1];
 		
-		GameAssets.MassRender[0] = new ButtonBehaviour(GameAssets.GoBackMainMenu,
-				((Gdx.graphics.getWidth() / 2) - GameAssets.GoBackMainMenu.getWidth() *0.7f / 2),
-				330,
-				GameAssets.GoBackMainMenu.getWidth() * 0.7f, GameAssets.GoBackMainMenu.getHeight() * 0.7f, game);
+		GameAssets.MassRender[0] = new ButtonBehaviour(
+			GameAssets.GoBackMainMenu,
+			((Gdx.graphics.getWidth() / 2) - GameAssets.GoBackMainMenu.getWidth() *0.7f / 2),
+			330,
+			GameAssets.GoBackMainMenu.getWidth() * 0.7f, 
+			GameAssets.GoBackMainMenu.getHeight() * 0.7f, 
+			game);
 		
 	}
 
@@ -43,21 +46,37 @@ public class PostGameScreen extends ScreenAdapter {
 		}
 
 		if (GameAssets.ScoreCount > 9) {
-			GameAssets.font.draw(GameAssets.batch, GameAssets.PostGameMessage.concat(Integer.toString(GameAssets.ScoreCount)), 600,
-			Gdx.graphics.getHeight() - 340);
+			GameAssets.font.draw(
+				GameAssets.batch, 
+				GameAssets.PostGameMessage.concat(Integer.toString(GameAssets.ScoreCount)), 
+				600,
+				Gdx.graphics.getHeight() - 340
+			);
 		}
 		else {
-			GameAssets.font.draw(GameAssets.batch, GameAssets.PostGameMessage.concat(Integer.toString(GameAssets.ScoreCount)), 640,
-			Gdx.graphics.getHeight() - 340);	
+			GameAssets.font.draw(
+				GameAssets.batch, 
+				GameAssets.PostGameMessage.concat(Integer.toString(GameAssets.ScoreCount)), 
+				640,
+				Gdx.graphics.getHeight() - 340
+			);	
 		}
 		
 	    if (GameAssets.HighScore > 9) {
-	    GameAssets.font.draw(GameAssets.batch, GameAssets.HighScoreMessage.concat(Integer.toString(GameAssets.HighScore)), 650,
-	    		Gdx.graphics.getHeight() - 450);
+			GameAssets.font.draw(
+				GameAssets.batch, 
+				GameAssets.HighScoreMessage.concat(Integer.toString(GameAssets.HighScore)), 
+				650,
+				Gdx.graphics.getHeight() - 450
+			);
 	    }
 	    else {
-	    	GameAssets.font.draw(GameAssets.batch, GameAssets.HighScoreMessage.concat(Integer.toString(GameAssets.HighScore)), 690,
-	    			Gdx.graphics.getHeight() - 450);
+	    	GameAssets.font.draw(
+				GameAssets.batch, 
+				GameAssets.HighScoreMessage.concat(Integer.toString(GameAssets.HighScore)), 
+				690,
+	    		Gdx.graphics.getHeight() - 450
+			);
 	    }
 
 		GameAssets.batch.end(); // end of rendering
@@ -84,7 +103,8 @@ public class PostGameScreen extends ScreenAdapter {
 					GameAssets.ScoreCount = 0;
 					game.setScreen(new MainMenuScreen(game));
 					break;
-
+				default:
+					break;
 				}
 			}
 		}

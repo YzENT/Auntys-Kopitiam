@@ -35,15 +35,25 @@ public class ButtonBehaviour {
 		// if overlap then increase in size
 		if (RectangleButton.contains(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY())) {
 			ButtonImage.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-			GameAssets.batch.draw(ButtonImage,
-					RectangleButton.x - ((RectangleButton.width * ButtonScaleWhenMouseOverlap) - RectangleButton.width) / 2,
-					RectangleButton.y - ((RectangleButton.height * ButtonScaleWhenMouseOverlap) - RectangleButton.height) / 2,
-					RectangleButton.width * ButtonScaleWhenMouseOverlap,
-					RectangleButton.height * ButtonScaleWhenMouseOverlap);
+
+			GameAssets.batch.draw(
+				ButtonImage,
+				RectangleButton.x - ((RectangleButton.width * ButtonScaleWhenMouseOverlap) - RectangleButton.width) / 2,
+				RectangleButton.y - ((RectangleButton.height * ButtonScaleWhenMouseOverlap) - RectangleButton.height) / 2,
+				RectangleButton.width * ButtonScaleWhenMouseOverlap,
+				RectangleButton.height * ButtonScaleWhenMouseOverlap
+			);
+
 		} else { // else just render the normal dimension
 			ButtonImage.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
-			GameAssets.batch.draw(ButtonImage, RectangleButton.x, RectangleButton.y, RectangleButton.width,
-					RectangleButton.height);
+
+			GameAssets.batch.draw(
+				ButtonImage, 
+				RectangleButton.x, 
+				RectangleButton.y, 
+				RectangleButton.width,
+				RectangleButton.height
+				);
 		}
 
 	}

@@ -28,9 +28,11 @@ public class PreGameScreen extends ScreenAdapter {
 		GameAssets.batch.draw(GameAssets.CafeBg_Blur, 0, 0); // draw background image
 
 		// render message
-		GameAssets.font.draw(GameAssets.batch, GameAssets.PreGameMessage,
-				(Gdx.graphics.getWidth() - GameAssets.layout.width) / 2,
-				(Gdx.graphics.getHeight() / 2) + (GameAssets.layout.height / 2));
+		GameAssets.font.draw(
+			GameAssets.batch, GameAssets.PreGameMessage,
+			(Gdx.graphics.getWidth() - GameAssets.layout.width) / 2,
+			(Gdx.graphics.getHeight() / 2) + (GameAssets.layout.height / 2)
+		);
 
 		GameAssets.batch.end(); // end of rendering
 		GameAssets.InGameMouse.render(); // in game mouse
@@ -45,7 +47,6 @@ public class PreGameScreen extends ScreenAdapter {
 	public void InputDetection() {
 		if (Gdx.input.justTouched()) {
 			game.setScreen(new GameScreen(game));
-			
 		}
 	}
 

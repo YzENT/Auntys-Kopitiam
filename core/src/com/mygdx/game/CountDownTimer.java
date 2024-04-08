@@ -22,32 +22,38 @@ public class CountDownTimer {
 	}
 
 	public void StatusCheck() {
+		//if timer = 0 seconds AND is NOT active then resets
 		if (TimeLeft <= 0 && !TimerActive) {
 			reset();
-		} else {
+		} else { //if not then start timer
 			start();
 		}
 	}
 
 	public float getTimeLeft() {
+		//returns TimeLeft in class CountDownTimer
 		return TimeLeft;
 	}
 
 	public void setTimeLeft(float timeLeft) {
+		//sets TimeLeft in class CountDownTimer
 		TimeLeft = timeLeft;
 	}
 
 	public float getMaxTime() {
+		//returns MaxTime in class CountDownTimer
 		return MaxTime;
 	}
 
 	public void setMaxTime(float maxTime) {
-		this.MaxTime = maxTime;
+		//sets MaxTime in class CountDownTimer
+		MaxTime = maxTime;
 	}
 
 
 
 	public void reset() {
+		//method to reset timer
 		TimeLeft = getMaxTime();
 		TimerStopped = false;
 		TimerPaused = false;
@@ -56,6 +62,7 @@ public class CountDownTimer {
 	}
 
 	public void start() {
+		//method to create timer
 		if (!TimerActive) {
 			CountDown = new Timer.Task() {
 				@Override
@@ -73,6 +80,7 @@ public class CountDownTimer {
 	}
 
 	public void stop() {
+		//method to stop timer
 		if (TimerActive) {
 			CountDown.cancel();
 			TimerStopped = true;
@@ -81,6 +89,7 @@ public class CountDownTimer {
 	}
 
 	public void pause() {
+		//pauses timer only if its active AND NOT paused
 		if (TimerActive && !TimerPaused) {
 			CountDown.cancel();
 			TimerPaused = true;
@@ -88,6 +97,7 @@ public class CountDownTimer {
 	}
 
 	public void resume() {
+		//resumes timer only if there is an active timer AND it's paused
 		if (TimerActive && TimerPaused) {
 			time.scheduleTask(CountDown, Delay, Interval);
 			TimerPaused = false;
@@ -95,6 +105,11 @@ public class CountDownTimer {
 	}
 
 	public void dispose() {
+
+		/*
+		 * Disposal of resources used in this class
+		 */
+
 		game.dispose();
 		GameAssets.CountDownTimer.dispose();
 	}

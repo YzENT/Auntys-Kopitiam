@@ -23,12 +23,22 @@ public class PauseMenu extends ScreenAdapter {
 		GameAssets.MassRender = new ButtonBehaviour[2];
 
 		// Resume Icon
-		GameAssets.MassRender[0] = new ButtonBehaviour(GameAssets.ResumeIcon, 700, 
-				(Gdx.graphics.getHeight() - GameAssets.ResumeIcon.getHeight())/2, GameAssets.ResumeIcon.getWidth(), GameAssets.ResumeIcon.getHeight(), game);
+		GameAssets.MassRender[0] = new ButtonBehaviour(
+			GameAssets.ResumeIcon, 
+			700, 
+			(Gdx.graphics.getHeight() - GameAssets.ResumeIcon.getHeight())/2, 
+			GameAssets.ResumeIcon.getWidth(), 
+			GameAssets.ResumeIcon.getHeight(), 
+			game);
 		
 		//Home Icon
-		GameAssets.MassRender[1] = new ButtonBehaviour(GameAssets.HomeIcon, 1100,
-				(Gdx.graphics.getHeight() - GameAssets.HomeIcon.getHeight())/2, GameAssets.HomeIcon.getWidth(), GameAssets.HomeIcon.getHeight(), game);
+		GameAssets.MassRender[1] = new ButtonBehaviour(
+			GameAssets.HomeIcon, 
+			1100,
+			(Gdx.graphics.getHeight() - GameAssets.HomeIcon.getHeight())/2, 
+			GameAssets.HomeIcon.getWidth(), 
+			GameAssets.HomeIcon.getHeight(), 
+			game);
 
 	}
 

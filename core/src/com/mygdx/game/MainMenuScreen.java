@@ -25,44 +25,49 @@ public class MainMenuScreen extends ScreenAdapter {
 		// initialize x amount of buttons
 		GameAssets.MassRender = new ButtonBehaviour[5];
 
-		// try and change this to for loop (code below)
-		// ok i give up
-
 		// PlayGame button
-		GameAssets.MassRender[0] = new ButtonBehaviour(GameAssets.PlayGameButton,
-				(Gdx.graphics.getWidth() - GameAssets.PlayGameButton.getWidth()) / 2,
-				(((Gdx.graphics.getHeight() - GameAssets.PlayGameButton.getHeight()) / 2) / 30)
-						* ((ButtonHeightDifference * 3) + 2),
-				GameAssets.PlayGameButton.getWidth(), GameAssets.PlayGameButton.getHeight(),
-				game);
+		GameAssets.MassRender[0] = new ButtonBehaviour(
+			GameAssets.PlayGameButton,
+			(Gdx.graphics.getWidth() - GameAssets.PlayGameButton.getWidth()) / 2,
+			(((Gdx.graphics.getHeight() - GameAssets.PlayGameButton.getHeight()) / 2) / 30) * ((ButtonHeightDifference * 3) + 2),
+			GameAssets.PlayGameButton.getWidth(), 
+			GameAssets.PlayGameButton.getHeight(),
+			game);
 
 		// HowToPlay button
-		GameAssets.MassRender[1] = new ButtonBehaviour(GameAssets.HowToPlayButton,
-				(Gdx.graphics.getWidth() - GameAssets.HowToPlayButton.getWidth()) / 2,
-				(((Gdx.graphics.getHeight() - GameAssets.HowToPlayButton.getHeight()) / 2) / 30)
-						* ((ButtonHeightDifference * 2) + 2),
-				GameAssets.HowToPlayButton.getWidth(), GameAssets.HowToPlayButton.getHeight(),
-				game);
+		GameAssets.MassRender[1] = new ButtonBehaviour(
+			GameAssets.HowToPlayButton,
+			(Gdx.graphics.getWidth() - GameAssets.HowToPlayButton.getWidth()) / 2,
+			(((Gdx.graphics.getHeight() - GameAssets.HowToPlayButton.getHeight()) / 2) / 30) * ((ButtonHeightDifference * 2) + 2),
+			GameAssets.HowToPlayButton.getWidth(), GameAssets.HowToPlayButton.getHeight(),
+			game);
 
 		// About button
-		GameAssets.MassRender[2] = new ButtonBehaviour(GameAssets.AboutButton,
-				(Gdx.graphics.getWidth() - GameAssets.AboutButton.getWidth()) / 2,
-				(((Gdx.graphics.getHeight() - GameAssets.AboutButton.getHeight()) / 2) / 30)
-						* ((ButtonHeightDifference * 1) + 2),
-				GameAssets.AboutButton.getWidth(), GameAssets.AboutButton.getHeight(), game);
+		GameAssets.MassRender[2] = new ButtonBehaviour(
+			GameAssets.AboutButton,
+			(Gdx.graphics.getWidth() - GameAssets.AboutButton.getWidth()) / 2,
+			(((Gdx.graphics.getHeight() - GameAssets.AboutButton.getHeight()) / 2) / 30) * ((ButtonHeightDifference * 1) + 2),
+			GameAssets.AboutButton.getWidth(),
+			GameAssets.AboutButton.getHeight(), 
+			game);
 
 		// Quit button
-		GameAssets.MassRender[3] = new ButtonBehaviour(GameAssets.QuitButton,
-				(Gdx.graphics.getWidth() - GameAssets.QuitButton.getWidth()) / 2,
-				(((Gdx.graphics.getHeight() - GameAssets.QuitButton.getHeight()) / 2) / 30)
-						* ((ButtonHeightDifference * 0) + 2),
-				GameAssets.QuitButton.getWidth(), GameAssets.QuitButton.getHeight(), game);
+		GameAssets.MassRender[3] = new ButtonBehaviour(
+			GameAssets.QuitButton,
+			(Gdx.graphics.getWidth() - GameAssets.QuitButton.getWidth()) / 2,
+			(((Gdx.graphics.getHeight() - GameAssets.QuitButton.getHeight()) / 2) / 30) * ((ButtonHeightDifference * 0) + 2),
+			GameAssets.QuitButton.getWidth(), 
+			GameAssets.QuitButton.getHeight(), 
+			game);
 
 		// Settings icon
-		GameAssets.MassRender[4] = new ButtonBehaviour(GameAssets.SettingsIcon,
-				(Gdx.graphics.getWidth() - (GameAssets.SettingsIcon.getWidth() * 1.2f)),
-				(Gdx.graphics.getHeight() - (GameAssets.SettingsIcon.getHeight() * 1.2f)),
-				GameAssets.SettingsIcon.getWidth(), GameAssets.SettingsIcon.getHeight(), game);
+		GameAssets.MassRender[4] = new ButtonBehaviour(
+			GameAssets.SettingsIcon,
+			(Gdx.graphics.getWidth() - (GameAssets.SettingsIcon.getWidth() * 1.2f)),
+			(Gdx.graphics.getHeight() - (GameAssets.SettingsIcon.getHeight() * 1.2f)),
+			GameAssets.SettingsIcon.getWidth(), 
+			GameAssets.SettingsIcon.getHeight(), 
+			game);
 	}
 
 	@Override
@@ -73,8 +78,13 @@ public class MainMenuScreen extends ScreenAdapter {
 		GameAssets.batch.begin(); // begin rendering
 
 		// Render MainMenuBg
-		GameAssets.batch.draw(GameAssets.MainMenuBg, 0, 0, GameAssets.MainMenuBg.getWidth(),
-				GameAssets.MainMenuBg.getHeight());
+		GameAssets.batch.draw(
+			GameAssets.MainMenuBg, 
+			0, 
+			0, 
+			GameAssets.MainMenuBg.getWidth(),
+			GameAssets.MainMenuBg.getHeight()
+		);
 
 		// render interactive buttons
 		for (ButtonBehaviour button : GameAssets.MassRender) {
