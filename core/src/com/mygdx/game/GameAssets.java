@@ -52,9 +52,18 @@ public class GameAssets extends Game {
 	public static Texture MixingCupFront;
 	public static Texture ServeDrinkIcon;
 	public static Texture DustbinIcon;
+	public static Texture CorrectDrinkIcon;
+	public static Texture WrongDrinkIcon;
 	public static Texture VolumeUnmuteIcon;
 	public static Texture VolumeMuteIcon;
 	public static Texture GoBackMainMenu;
+	
+	// Drinks
+	public static Texture DrinkCham;
+	public static Texture DrinkKopi;
+	public static Texture DrinkMilo;
+	public static Texture DrinkSirapBandung;
+	public static Texture DrinkTehTarik;
 	
 	// For ingredient animations
 	public static Texture[] Pour;
@@ -139,6 +148,7 @@ public class GameAssets extends Game {
 	public static boolean SFXToggle = true;
 	public static boolean MusicToggle = true;
 	public static boolean AnimationPlay = false;
+	public static boolean ShowResultPlay = false;
 	public static int TutorialImageIndex = 0;
 	public static int TutorialImageCount = 0;
 
@@ -180,6 +190,13 @@ public class GameAssets extends Game {
 		MixingCup = new Texture(Gdx.files.internal("Texture/Ingredients/MixingCup.png"));
 		MixingCupFront = new Texture(Gdx.files.internal("Texture/Ingredients/MixingCupFront.png"));
 		
+		// Drink assets
+		DrinkCham = new Texture(Gdx.files.internal("Texture/Drinks/Cham.png"));
+		DrinkKopi = new Texture(Gdx.files.internal("Texture/Drinks/Kopi.png"));
+		DrinkMilo = new Texture(Gdx.files.internal("Texture/Drinks/Milo.png"));
+		DrinkSirapBandung = new Texture(Gdx.files.internal("Texture/Drinks/SirapBandung.png"));
+		DrinkTehTarik = new Texture(Gdx.files.internal("Texture/Drinks/TehTarik.png"));
+		
 		Pour = new Texture[8];
 		Pour[0] = new Texture(Gdx.files.internal("Texture/Ingredients/TeaPour.png"));
 		Pour[1] = new Texture(Gdx.files.internal("Texture/Ingredients/MilkPour.png"));
@@ -190,12 +207,14 @@ public class GameAssets extends Game {
 		Pour[6] = new Texture(Gdx.files.internal("Texture/Ingredients/MiluPour.png"));
 		Pour[7] = new Texture(Gdx.files.internal("Texture/Ingredients/IcePour.png"));
 		
+		CorrectDrinkIcon = new Texture(Gdx.files.internal("Texture/Miscellaneous/CorrectDrinkIcon.png"));
+		WrongDrinkIcon = new Texture(Gdx.files.internal("Texture/Miscellaneous/WrongDrinkIcon.png"));
 		ServeDrinkIcon = new Texture(Gdx.files.internal("Texture/Buttons/ServeDrinkIcon.png"));
 		DustbinIcon = new Texture(Gdx.files.internal("Texture/Buttons/DustbinIcon.png"));
 		VolumeUnmuteIcon = new Texture(Gdx.files.internal("Texture/Buttons/VolumeUnmuteIcon.png"));
 		VolumeMuteIcon = new Texture(Gdx.files.internal("Texture/Buttons/VolumeMuteIcon.png"));
 		GoBackMainMenu = new Texture(Gdx.files.internal("Texture/Buttons/GoBackMainMenu.png"));
-
+		
 		cursorPixmap = new Pixmap(Gdx.files.internal("SharedAssets/EmptyImage.png"));
 		MouseClickSFX = Gdx.audio.newSound(Gdx.files.internal("SharedAssets/MouseClick.mp3"));
 		PageFlipSFX = Gdx.audio.newSound(Gdx.files.internal("SharedAssets/PageFlip.mp3"));
@@ -285,7 +304,15 @@ public class GameAssets extends Game {
 		Ice.dispose();
 		MixingCup.dispose();
 		MixingCupFront.dispose();
+		
+		DrinkCham.dispose();
+		DrinkKopi.dispose();
+		DrinkMilo.dispose();
+		DrinkSirapBandung.dispose();
+		DrinkTehTarik.dispose();
 
+		CorrectDrinkIcon.dispose();
+		WrongDrinkIcon.dispose();
 		ServeDrinkIcon.dispose();
 		DustbinIcon.dispose();
 		VolumeUnmuteIcon.dispose();

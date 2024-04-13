@@ -23,18 +23,23 @@ public class IngredientsLogic{
 		switch (GameAssets.DrinkType) {
 		case 0:
 			Kopi();
+			GameScreen.Drink = GameAssets.DrinkKopi;
 			break;
 		case 1:
 			TehTarik();
+			GameScreen.Drink = GameAssets.DrinkTehTarik;
 			break;
 		case 2:
 			Cham();
+			GameScreen.Drink = GameAssets.DrinkCham;
 			break;
 		case 3:
 			Milo();
+			GameScreen.Drink = GameAssets.DrinkMilo;
 			break;
 		case 4:
 			SirapBandung();
+			GameScreen.Drink = GameAssets.DrinkSirapBandung;
 			break;
 		default:
 			break;

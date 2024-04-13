@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.Input;
 
@@ -12,6 +13,11 @@ public class GameScreen extends ScreenAdapter {
 	private int IngredientIndex; // decides which ingredient animation plays
 	public boolean resetAnimation; // flag to restart animation 
 	CountDownTimer AnimateTimer = new CountDownTimer(0.2f,0.05f);
+	
+	public static Texture Drink;
+	public char ResultStatus;
+	public boolean ResetResult;
+	CountDownTimer ShowResultTimer = new CountDownTimer(0.25f, 0.25f);
 
 	public GameScreen(GameAssets game) {
 		this.game = game;
@@ -125,8 +131,24 @@ public class GameScreen extends ScreenAdapter {
 		GameAssets.batch.begin(); // begin rendering
 		GameAssets.batch.draw(GameAssets.CafeBg, 0, 0); // draw background image
 		
-		RenderDrinkCount(); //render ingredients requirements
-		GameAssets.batch.draw(GameAssets.MixingCup, 793 , 173);
+		if (!GameAssets.ShowResultPlay) {
+			RenderDrinkCount(); //render ingredients requirements
+			GameAssets.batch.draw(GameAssets.MixingCup, 793 , 173);
+		}
+		else {
+			switch(ResultStatus) {
+			case 'c':
+				DisplayResult(GameAssets.CorrectDrinkIcon);
+				break;
+			case 'w':
+				DisplayResult(GameAssets.WrongDrinkIcon);
+				break;
+			default:
+				GameAssets.batch.draw(GameAssets.MixingCup, 793 , 173);
+				break;
+			}
+			
+		}
 		
 		RenderMathableUI(); //render timer + score
 
@@ -140,10 +162,10 @@ public class GameScreen extends ScreenAdapter {
 			pause();
 		}
 		
-		if (!GameAssets.AnimationPlay) { // when animation is playing, user cannot spam click ingredients
+		if (!GameAssets.AnimationPlay && !GameAssets.ShowResultPlay) { // when animation is playing, user cannot spam click ingredients
 			InputDetection(); // checks for input every frame
 		}
-		else {
+		else if (!GameAssets.ShowResultPlay) {
 			AnimateIngredients(); // plays the animation
 		}
 
@@ -219,6 +241,11 @@ public class GameScreen extends ScreenAdapter {
 					GameAssets.AnimationPlay = true;
 				}
 				
+				if (i == 9) {
+					ResetResult = true;
+					GameAssets.ShowResultPlay = true;
+				}
+				
 				switch (i) {
 				case 0:
 					pause();
@@ -260,8 +287,11 @@ public class GameScreen extends ScreenAdapter {
 					if (GameAssets.IngredientsLogic.CountCheck()) {
 						GameAssets.ScoreCount++;
 						GameAssets.IngredientsLogic.CorrectDrinkSFX();
+						ResultStatus = 'c';
+						
 					} else {
 						GameAssets.IngredientsLogic.IncorrectDrinkSFX();
+						ResultStatus = 'w';	
 					}
 					GameAssets.IngredientsLogic.ResetUserCount(); //reset
 					GameAssets.IngredientsLogic.DecideDrinks(); //and choose next drink
@@ -369,6 +399,33 @@ public class GameScreen extends ScreenAdapter {
 			}
 		}
 
+	}
+	
+	public void DisplayResult(Texture Icon) {
+		
+		if (ResetResult) { // resets the timer to 1.0 seconds
+			ShowResultTimer.setMaxTime(1.0f);
+			ResetResult = false;
+		}
+		
+		ShowResultTimer.StatusCheck();
+		
+		if (ShowResultTimer.getTimeLeft() <= 0) { // checks if animation is finished, else play animation
+			GameAssets.ShowResultPlay = false;
+		}
+		else {
+			if (ResultStatus == 'c') {
+				GameAssets.batch.draw(Drink, 805, 172);
+			}
+			else {
+				GameAssets.batch.draw(GameAssets.MixingCup, 793 , 173);
+			}
+			
+			if ((ShowResultTimer.getTimeLeft() * 100) % 2 != 0) {
+				GameAssets.batch.draw(Icon, 675, 286);
+			}
+			
+		}
 	}
 
 }
