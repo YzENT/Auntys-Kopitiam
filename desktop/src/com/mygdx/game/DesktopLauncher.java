@@ -21,6 +21,7 @@ public class DesktopLauncher {
 			config.setWindowedMode(GetScreenWidth(), GetScreenHeight()); //fullscreen
 			config.setDecorated(false); //borderless fullscreen
 			config.useVsync(true); //v-sync
+			config.setWindowIcon("Texture/Icon.jpg");
 			new Lwjgl3Application(new GameAssets(), config); //initialize game
 		}
 	
