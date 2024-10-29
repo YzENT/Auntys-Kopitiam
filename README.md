@@ -25,6 +25,12 @@ Your goal is to make as many drinks as possible within the time limit by selecti
 
 * Alternatively, you can import the `gradle` project into one of the IDE's mentioned above and compile the program. For more information, please click [here](https://libgdx.com/wiki/start/import-and-running).
 
+## Screenshots
+
+![MainMenu](images/Screenshot%202024-10-29%20214217.png)
+![HowToPlay](images/Screenshot%202024-10-29%20214254.png)
+![Gameplay](images/Screenshot%202024-10-29%20214322.png)
+
 ## Contacting
 * All resource used in this program are either self-made, or obtained through internet.
 * If any of the resource in this program contains copyrighted material and wish for removal, please do not hesitate to contact me.
